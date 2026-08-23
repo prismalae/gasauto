@@ -15,9 +15,16 @@ const eslintConfig = [
     ignores: [
       "node_modules/**",
       ".next/**",
+      // Production builds go here (see next.config.ts) — generated output,
+      // never linted.
+      ".next-prod/**",
       "out/**",
       "build/**",
       "next-env.d.ts",
+      // Untouched originals and standalone node check scripts.
+      "media-source/**",
+      "scripts/**",
+      "public/**",
     ],
   },
 ];

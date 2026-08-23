@@ -1,26 +1,455 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+   GAS AUTO — dark editorial system.
+
+   Deep, slightly green-shifted black with the logo green as the single accent.
+   No neon, no glow, no gradient text, no glass — those are what made the first
+   pass look generic. Flat surfaces, hairline rules and real whitespace instead,
+   which is also what makes photography look good once it is added.
+
+   Every text/background pair below passes WCAG AA for normal text.
+--------------------------------------------------------------------------- */
+
+@theme {
+  /* Base tones carry the logo's forest-green cast rather than neutral black. */
+  --color-paper: #04120a;
+  --color-paper-2: #0a2011;
+  --color-surface: #081a0e;
+  --color-ink: #e9efea;
+  --color-muted: #93a897;
+  --color-line: #17361f;
+
+  /* Sampled straight from the logo: the gloss ring, the mid ring and the
+     dark field of the badge. */
+  --color-green: #12be45;
+  --color-green-deep: #00a537;
+  --color-green-soft: #0b2c15;
+  --color-green-field: #00300c;
+  --color-green-mid: #005424;
+  --color-steel: #cfd4dd;
+
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: var(--font-arabic-face), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --header-h: 4.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  min-width: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings run Sora at 600 with tight tracking. In @layer base so that
+   utilities such as leading-[1.08] or font-medium still override it —
+   unlayered rules beat layered utilities regardless of specificity. */
+@layer base {
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+}
+
+::selection {
+  background: var(--color-green);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-green);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* A single card treatment: paper, hairline, nothing else. Hover lifts the
+   border and nudges it up 2px — no shadow bloom. */
+@layer components {
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: 0.5rem;
+    transition:
+      border-color 0.25s var(--ease-out-expo),
+      transform 0.25s var(--ease-out-expo);
+  }
+
+  .card-hover:hover {
+    border-color: color-mix(in oklab, var(--color-green) 55%, transparent);
+    transform: translateY(-2px);
+  }
+
+  .rule {
+    border-top: 1px solid var(--color-line);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Chrome + gradient treatments.
+
+   The animated stroke is a real rotating conic gradient driven by a registered
+   custom property, so the chrome highlight actually travels around the border
+   instead of sitting still. @property is what makes an angle animatable; where
+   it is unsupported the border simply renders static, which still looks right.
+--------------------------------------------------------------------------- */
+
+@property --gas-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes gas-rotate {
+  to {
+    --gas-angle: 360deg;
+  }
+}
+
+@layer components {
+  /* Gradient card surface — a green wash off the top-left corner falling into
+     near-black, so body copy keeps its contrast at the bottom of the card. */
+  /* Both gradients read top-left-bright to bottom-right-dark, the same way
+     the logo badge goes from its gloss ring into the deep green field. */
+  .grad-card {
+    background:
+      radial-gradient(130% 110% at 0% 0%, rgba(0, 165, 55, 0.28), transparent 58%),
+      linear-gradient(165deg, #0d2b16 0%, #081a0e 48%, #051309 100%);
+    /* Oversized first layer leaves room for the highlight to travel. */
+    background-size: 200% 200%, 100% 100%;
+    background-position: 0% 0%, 0% 0%;
+    animation: gas-grad-drift 19s ease-in-out infinite;
+  }
+
+  /* Stagger neighbouring cards so a grid does not pulse in unison. */
+  .grad-card:nth-child(2n) { animation-delay: -6s; }
+  .grad-card:nth-child(3n) { animation-delay: -12s; }
+
+  .grad-band {
+    background:
+      radial-gradient(95% 150% at 100% 0%, rgba(18, 190, 69, 0.24), transparent 62%),
+      radial-gradient(80% 120% at 0% 100%, rgba(0, 84, 36, 0.5), transparent 65%),
+      linear-gradient(150deg, #0b2814 0%, #071a0d 55%, #04120a 100%);
+    background-size: 180% 180%, 190% 190%, 100% 100%;
+    background-position: 100% 0%, 0% 100%, 0% 0%;
+    animation: gas-band-drift 24s ease-in-out infinite;
+  }
+}
+
+/* Animated chrome stroke. Border is drawn in the padding box and masked out of
+   the content box, so it stays a true 1px ring at any radius. */
+.chrome-stroke {
+  position: relative;
+  isolation: isolate;
+}
+
+.chrome-stroke::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--gas-angle),
+    rgba(122, 127, 139, 0.28) 0deg,
+    rgba(255, 255, 255, 0.9) 45deg,
+    rgba(192, 192, 204, 0.55) 95deg,
+    rgba(122, 127, 139, 0.18) 165deg,
+    rgba(228, 228, 240, 0.75) 240deg,
+    rgba(18, 190, 69, 0.9) 300deg,
+    rgba(122, 127, 139, 0.28) 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: gas-rotate 7s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Slower on large panels so it reads as a sweep, not a spin. */
+.chrome-stroke-slow::before {
+  animation-duration: 14s;
+}
+
+/* Chrome light sweeping across a card on hover. */
+.sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 38%,
+    rgba(228, 228, 240, 0.09) 48%,
+    rgba(255, 255, 255, 0.05) 52%,
+    transparent 62%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.9s var(--ease-out-expo);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.sheen:hover::after {
+  transform: translateX(130%);
+}
+
+/* Drifting aurora behind the hero. */
+@keyframes gas-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(4%, -3%, 0) scale(1.12); }
+}
+
+.aurora {
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  background:
+    radial-gradient(38% 42% at 22% 30%, rgba(0, 165, 55, 0.30), transparent 65%),
+    radial-gradient(32% 38% at 78% 22%, rgba(18, 190, 69, 0.20), transparent 62%),
+    radial-gradient(45% 40% at 60% 78%, rgba(0, 84, 36, 0.34), transparent 68%),
+    radial-gradient(30% 30% at 88% 70%, rgba(122, 127, 139, 0.10), transparent 70%);
+  filter: blur(28px);
+  animation: gas-drift 18s ease-in-out infinite;
+}
+
+/* Chrome text fill, restored — solid colour declared first so the heading can
+   never render invisible if background-clip:text is unsupported. */
+.text-chrome {
+  color: var(--color-ink);
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .text-chrome {
+    background-image: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #e4e4f0 34%,
+      #c0c0cc 62%,
+      #8b919c 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Gradient underline that grows in on hover — used on nav and inline links. */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--color-green-deep), var(--color-green) 45%, rgba(228, 228, 240, 0.85));
+  transition: transform 0.35s var(--ease-out-expo);
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Shine that crosses a filled button on hover. */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 60%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.7s var(--ease-out-expo);
+}
+
+.btn-shine:hover::after {
+  transform: translateX(120%);
+}
+
+@keyframes gas-grad-drift {
+  0%,
+  100% { background-position: 0% 0%, 0% 0%; }
+  50%  { background-position: 45% 35%, 0% 0%; }
+}
+
+@keyframes gas-band-drift {
+  0%,
+  100% { background-position: 100% 0%, 0% 100%, 0% 0%; }
+  50%  { background-position: 55% 25%, 40% 70%, 0% 0%; }
+}
+
+/* Primary button fill: logo greens panning left to right, forever. */
+@keyframes gas-gradient-pan {
+  to { background-position: -200% 0; }
+}
+
+.btn-gradient {
+  background-image: linear-gradient(
+    100deg,
+    #00a537 0%,
+    #12be45 25%,
+    #2acd57 45%,
+    #12be45 65%,
+    #00a537 100%
+  );
+  background-size: 200% 100%;
+  background-position: 0% 0;
+  animation: gas-gradient-pan 7s linear infinite;
+}
+
+/* Outline button: green wash grows from the left on hover. */
+.btn-outline-fill {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.btn-outline-fill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, rgba(0, 165, 55, 0.28), rgba(18, 190, 69, 0.12));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.btn-outline-fill:hover::before {
+  transform: scaleX(1);
+}
+
+/* Pressed state for every button. */
+.btn-press {
+  transition:
+    transform 0.18s var(--ease-out-expo),
+    border-color 0.25s var(--ease-out-expo),
+    color 0.25s var(--ease-out-expo);
+}
+
+.btn-press:hover  { transform: translateY(-1px); }
+.btn-press:active { transform: translateY(0) scale(0.985); }
+
+/* Arrows and icons inside a button nudge along on hover. */
+.btn-press:hover .btn-icon {
+  transform: translateX(3px);
+}
+
+.btn-icon {
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+/* Marquee for the review rail. */
+@keyframes gas-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: gas-marquee 46s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Dashed route line on the pickup band. */
+@keyframes gas-dash {
+  to { stroke-dashoffset: -1000; }
+}
+
+.animate-dash {
+  animation: gas-dash 24s linear infinite;
+}
+
+/* ---------------------------------------------------------------------------
+   Reduced motion — kill decorative animation, and guarantee scroll reveals are
+   visible. The server cannot know the user's preference, so reveals are
+   server-rendered hidden; this stylesheet overrides that regardless of the
+   inline styles the motion library writes.
+--------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-marquee,
+  .animate-dash,
+  .chrome-stroke::before,
+  .aurora,
+  .grad-card,
+  .grad-band,
+  .btn-gradient {
+    animation: none !important;
+  }
+
+  .btn-press:hover,
+  .btn-press:active {
+    transform: none !important;
+  }
+
+  .btn-outline-fill::before {
+    display: none !important;
+  }
+
+  .sheen::after,
+  .btn-shine::after,
+  .link-underline::after {
+    display: none !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
