@@ -46,7 +46,12 @@ export function Hero() {
             className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-muted"
           >
             <span className="h-px w-6 bg-green" />
-            Sharjah, UAE · Pickup &amp; delivery UAE-wide
+            <span>
+              Sharjah, UAE
+              <span className="hidden min-[420px]:inline">
+                {" "}· Pickup &amp; delivery UAE-wide
+              </span>
+            </span>
           </motion.p>
 
           {/*
@@ -127,7 +132,7 @@ export function Hero() {
         rolling right. data-reveal ties it into the reduced-motion and no-JS
         CSS overrides, so it can never be stranded off-screen.
       */}
-      <div className="mx-auto mt-6 max-w-6xl px-5 sm:mt-2 sm:px-6 lg:px-8">
+      <div className="mx-auto mt-8 max-w-6xl sm:mt-2 sm:px-6 lg:px-8">
         {/* Outer div: one-shot drive-in. Inner div: scroll-linked drift.
             Same property, two elements — they must not share one transform. */}
         <motion.div
@@ -135,7 +140,7 @@ export function Hero() {
           initial={reduced ? false : { x: "-70vw", opacity: 0.001 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.35, duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative ml-auto w-full max-w-[880px]"
+          className="relative -ml-[12%] -mr-[12%] w-[124%] sm:ml-auto sm:mr-0 sm:w-full sm:max-w-[880px]"
         >
           <motion.div style={reduced ? undefined : { x: carX }} className="relative">
             {/* Ground shadow so the cutout sits on the road, not floating. */}
