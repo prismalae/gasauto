@@ -37,8 +37,14 @@ export function Hero() {
         <div className="aurora" />
       </motion.div>
 
-      <div className="mx-auto max-w-6xl px-5 pt-12 sm:px-6 sm:pt-16 lg:px-8">
-        <div className="max-w-2xl">
+      {/*
+        One viewport-height scene on desktop: text column left, car anchored
+        to the bottom-right of the SAME frame — nothing important below the
+        fold. Below lg it flows: tightened text stack, then the car, sized to
+        land inside the first mobile viewport.
+      */}
+      <div className="relative mx-auto w-full max-w-6xl px-5 sm:px-6 lg:flex lg:min-h-[min(calc(100svh-var(--header-h)),50rem)] lg:flex-col lg:justify-center lg:px-8">
+        <div className="max-w-2xl pt-8 sm:pt-12 lg:max-w-[32rem] lg:pb-20 lg:pt-0">
           <motion.p
             initial={reduced ? false : { opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -59,7 +65,7 @@ export function Hero() {
             four-marque list belongs to the paragraph and the marquee, not
             the headline. Sharjah already lives in the eyebrow above.
           */}
-          <h1 className="mt-5 font-display text-[1.75rem] leading-[1.08] sm:text-[2.5rem] lg:text-[3rem]">
+          <h1 className="mt-4 font-display text-[1.75rem] leading-[1.08] sm:text-[2.5rem] lg:text-[2.625rem]">
             <TextReveal text="Range Rover, Defender" className="block text-chrome" />
             <TextReveal
               as="span"
@@ -73,7 +79,7 @@ export function Hero() {
             initial={reduced ? false : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 max-w-xl text-[0.9375rem] leading-relaxed text-muted sm:text-base"
+            className="mt-4 max-w-xl text-[0.9375rem] leading-relaxed text-muted sm:text-base"
           >
             Independent specialists in the{" "}
             <strong className="font-semibold text-ink">Jaguar Land Rover</strong>{" "}
@@ -87,7 +93,7 @@ export function Hero() {
             initial={reduced ? false : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.62, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-8 flex flex-wrap gap-3"
+            className="mt-6 flex flex-wrap gap-3"
           >
             <Magnetic>
               <ButtonLink href="/book" size="lg">
@@ -106,7 +112,7 @@ export function Hero() {
               hidden: {},
               show: { transition: { staggerChildren: 0.07, delayChildren: 0.75 } },
             }}
-            className="mt-8 grid gap-x-6 gap-y-2 text-sm text-muted sm:grid-cols-2"
+            className="mt-6 grid grid-cols-1 gap-x-5 gap-y-2 text-sm text-muted min-[420px]:grid-cols-2"
           >
             {proof.map((item) => (
               <motion.li
@@ -124,7 +130,6 @@ export function Hero() {
             ))}
           </motion.ul>
         </div>
-      </div>
 
       {/*
         The car drives in from off-screen left and parks with its tyres on the
@@ -132,16 +137,16 @@ export function Hero() {
         rolling right. data-reveal ties it into the reduced-motion and no-JS
         CSS overrides, so it can never be stranded off-screen.
       */}
-      <div className="mx-auto mt-8 max-w-6xl sm:mt-2 sm:px-6 lg:px-8">
-        {/* Outer div: one-shot drive-in. Inner div: scroll-linked drift.
-            Same property, two elements — they must not share one transform. */}
-        <motion.div
-          data-reveal=""
-          initial={reduced ? false : { x: "-70vw", opacity: 0.001 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.35, duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative -ml-[12%] -mr-[12%] w-[124%] sm:ml-auto sm:mr-0 sm:w-full sm:max-w-[880px]"
-        >
+        <div className="mt-8 sm:mt-4 lg:absolute lg:bottom-0 lg:right-0 lg:mt-0 lg:w-[57%] lg:pr-0">
+          {/* Outer div: one-shot drive-in. Inner div: scroll-linked drift.
+              Same property, two elements — they must not share one transform. */}
+          <motion.div
+            data-reveal=""
+            initial={reduced ? false : { x: "-70vw", opacity: 0.001 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.35, duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+            className="relative w-full sm:ml-auto sm:max-w-[820px]"
+          >
           <motion.div style={reduced ? undefined : { x: carX }} className="relative">
             {/* Ground shadow so the cutout sits on the road, not floating. */}
             <div
@@ -154,11 +159,12 @@ export function Hero() {
             width={1800}
             height={664}
             priority
-            sizes="(min-width: 1024px) 880px, 100vw"
+            sizes="(min-width: 1024px) 640px, (min-width: 640px) 820px, 100vw"
             className="relative w-full"
           />
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
