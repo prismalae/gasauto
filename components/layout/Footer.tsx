@@ -159,13 +159,21 @@ export function Footer() {
           <p className="text-xs text-muted">
             © {year} {site.legalName}. All rights reserved.
           </p>
-          <div className="flex gap-5 text-xs text-muted">
+          <div className="flex flex-wrap items-center gap-5 text-xs text-muted">
             <Link href="/privacy-policy" className="transition-colors hover:text-green">
               Privacy Policy
             </Link>
             <Link href="/terms" className="transition-colors hover:text-green">
               Terms
             </Link>
+            <a
+              href="https://prismal.ae"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-green"
+            >
+              Site by Prismal
+            </a>
           </div>
         </div>
       </div>
