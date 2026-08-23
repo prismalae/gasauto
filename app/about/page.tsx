@@ -16,7 +16,7 @@ import { JsonLd } from "@/components/schema/JsonLd";
 import { breadcrumbSchema } from "@/components/schema/schemas";
 
 const description =
-  "GAS AUTO is an independent car garage in Sharjah — Range Rover and Land Rover specialists and German car experts, with dealer-level diagnostics, genuine parts and UAE-wide pickup and delivery.";
+  "GAS AUTO is an independent car garage in Sharjah specialising exclusively in Jaguar Land Rover — Range Rover, Land Rover, Defender and Jaguar — with dealer-level diagnostics, genuine parts and UAE-wide pickup and delivery.";
 
 export const metadata: Metadata = {
   title: { absolute: "About GAS AUTO | Independent Car Garage in Sharjah" },
@@ -73,7 +73,7 @@ export default function AboutPage() {
             <span className="text-green">garage second</span>
           </>
         }
-        intro="GAS AUTO is an independent car garage in Sharjah built around two distinct disciplines: British 4x4s — Range Rover and Land Rover — and German cars. We chose to go deep on those rather than accept anything with four wheels, because depth is what makes a diagnosis fast and a repair right the first time."
+        intro="GAS AUTO is an independent car garage in Sharjah built around a single family of car: Jaguar Land Rover. Range Rover, Land Rover, Defender and Jaguar — we chose to go deep on those four rather than accept anything with four wheels, because depth is what makes a diagnosis fast and a repair right the first time."
         crumbs={crumbs}
       />
 
@@ -96,26 +96,25 @@ export default function AboutPage() {
           <Reveal>
             <Eyebrow>Our approach</Eyebrow>
             <h2 className="mt-4 font-display text-[1.75rem] sm:text-4xl">
-              <span className="text-chrome">Why we split the workshop</span>{" "}
-              <span className="text-green">in two</span>
+              <span className="text-chrome">Why we only fix</span>{" "}
+              <span className="text-green">one family of car</span>
             </h2>
             <div className="mt-6 space-y-4 text-muted">
               <p>
-                A Range Rover and a BMW are not the same problem wearing
-                different badges. The British 4x4s run air suspension
-                architecture, terrain response systems and an electrical layout
-                that is entirely their own — and in UAE heat they fail in
-                patterns that are specific and predictable. The German marques
-                are a different discipline: dense electronic architecture where
-                one fault lights several unrelated codes, and where replacement
-                parts frequently need coding before they will work at all.
+                Range Rover, Land Rover, Defender and Jaguar are one
+                engineering bloodline: shared platforms, shared Ingenium and AJ
+                engines, the same ZF automatic, the same air suspension
+                architecture and the same dense electronics — and in UAE heat
+                they fail in patterns that are specific and predictable. A
+                workshop that lives inside this family recognises most faults
+                from the symptom before the car is on the ramp.
               </p>
               <p>
-                Treating those as one job is how workshops end up guessing. We
-                keep them separate — separate diagnostic equipment, separate
-                expertise, separate sections of this website — because that
-                separation is what keeps our diagnostic time short and our
-                customers&rsquo; bills honest.
+                A workshop that accepts anything with four wheels cannot build
+                that depth. So we do not. One family, its diagnostic tooling,
+                its common failures known by heart — that focus is what keeps
+                our diagnostic time short and our customers&rsquo; bills
+                honest.
               </p>
               <p>
                 We are not a dealership and we do not pretend to be. What we

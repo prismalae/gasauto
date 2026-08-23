@@ -3,14 +3,14 @@ import { site } from "@/config/site";
 import { HubTemplate } from "@/components/sections/HubTemplate";
 
 const description =
-  "Independent Range Rover and Land Rover specialists in Sharjah. Air suspension, engine, gearbox and electrical repair with dealer-level diagnostics and UAE-wide pickup and delivery.";
+  "Independent Jaguar Land Rover specialists in Sharjah — Range Rover, Land Rover, Defender and Jaguar. Air suspension, engine, gearbox and electrical repair with dealer-level diagnostics and UAE-wide pickup.";
 
 export const metadata: Metadata = {
-  title: { absolute: "Range Rover Specialist Sharjah | Land Rover Garage — GAS AUTO" },
+  title: { absolute: "Range Rover Specialist Sharjah | JLR Garage — GAS AUTO" },
   description,
   alternates: { canonical: "/range-rover-specialist-sharjah" },
   openGraph: {
-    title: "Range Rover Specialist Sharjah | Land Rover Garage — GAS AUTO",
+    title: "Range Rover Specialist Sharjah | JLR Garage — GAS AUTO",
     description,
     url: `${site.domain}/range-rover-specialist-sharjah`,
     type: "website",
@@ -20,17 +20,17 @@ export const metadata: Metadata = {
 export default function RangeRoverHub() {
   return (
     <HubTemplate
-      family="british-4x4"
+      family="jlr"
       description={description}
       title={
         <>
-          <span className="text-chrome">Range Rover &amp; Land Rover</span>{" "}
-          <span className="text-green">Specialists</span>
+          <span className="text-chrome">Range Rover, Defender</span>{" "}
+          <span className="text-green">&amp; Jaguar Specialists</span>
           <br />
           <span className="text-2xl text-muted sm:text-3xl">in Sharjah</span>
         </>
       }
-      intro="GAS AUTO is an independent Range Rover specialist in Sharjah, and British 4x4s are our core specialty. Range Rover and Land Rover share an engineering DNA — air suspension, ZF transmissions, supercharged and diesel V6 engines, and dense electronics — and they fail in patterns we recognise. That familiarity is what keeps diagnostic time short and repair bills honest."
+      intro="GAS AUTO is an independent Range Rover specialist in Sharjah — and the whole Jaguar Land Rover family is our territory: Range Rover, Land Rover, Defender and Jaguar. They share an engineering DNA — air suspension, Ingenium and AJ engines, ZF automatics and dense electronics — and they fail in patterns we recognise. That familiarity is what keeps diagnostic time short and repair bills honest."
       serviceSlugs={[
         "air-suspension-repair",
         "engine-repair",
@@ -41,8 +41,8 @@ export default function RangeRoverHub() {
       ]}
       sections={[
         {
-          title: "Why British 4x4s get their own bay",
-          text: "A Range Rover is not a German saloon with a higher roof. The air suspension architecture, the terrain response system and the electrical layout are specific to these vehicles, and the diagnostic equipment that reads them properly is specific too. Treating them as a separate discipline is the whole point.",
+          title: "Why we only take one family of car",
+          text: "A workshop that accepts anything with four wheels diagnoses everything slowly. Range Rover, Land Rover, Defender and Jaguar share platforms, engines and electronic architecture, so depth in one is depth in all four — and depth is what finds the actual fault instead of the first plausible part.",
         },
         {
           title: "Air suspension is the headline fault",
@@ -56,22 +56,22 @@ export default function RangeRoverHub() {
       faqs={[
         {
           q: "Is Range Rover a German car?",
-          a: "No. Range Rover and Land Rover are British marques, built by Jaguar Land Rover. We are specialists in both, and separately we are experts in the German marques — Mercedes-Benz, BMW, Audi, Porsche and Volkswagen. They are genuinely different engineering, which is why we treat them as two distinct disciplines rather than one list of logos.",
+          a: "No. Range Rover, Land Rover, Defender and Jaguar are all British marques under Jaguar Land Rover — and that family is all we work on. One engineering bloodline, one specialism, done properly.",
         },
         {
-          q: "Do you work on both Range Rover and Land Rover models?",
-          a: "Yes — the full range. Range Rover Vogue, Sport, Velar and Evoque, plus Discovery, Discovery Sport, Defender and Freelander.",
+          q: "Which vehicles do you actually take?",
+          a: "The Jaguar Land Rover family only: every Range Rover, the Land Rover Discovery line, both generations of Defender, and Jaguar from the XE to the F-Type. Specialising is the point — it is why our diagnosis is fast and our repairs stick.",
         },
         {
           q: "Can you fix an air suspension fault the same day?",
           a: "Often, yes. A single air spring is usually a same-day job. A compressor and valve block together, or a system with multiple failures, may need the car overnight. We confirm the timeline with your quote.",
         },
         {
-          q: "Do you collect Range Rovers that will not lift?",
+          q: "Do you collect vehicles that will not lift or start?",
           a: "Yes. A car sitting on its bump stops is exactly what the collection service exists for. Tell us the symptom and your location when you book — we will confirm the collection charge up front and bring the right equipment.",
         },
         {
-          q: "Are you cheaper than the Land Rover dealer in Sharjah?",
+          q: "Are you cheaper than the dealer?",
           a: "Independent specialists sit well below dealer labour rates for the same work and equivalent parts. The bigger saving is usually diagnostic: we identify the specific failed component rather than replacing a whole assembly.",
         },
       ]}

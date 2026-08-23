@@ -220,7 +220,7 @@ function DropdownTrigger({
  */
 function BrandsMega() {
   return (
-    <div className="grid gap-10 md:grid-cols-2">
+    <div className="grid gap-10">
       {groups.map(({ family, brands: list }) => (
         <div key={family.id}>
           <Link
@@ -246,11 +246,6 @@ function BrandsMega() {
                     <BrandLogo slug={b.slug} name={b.name} />
                   </span>
                   <span className="mr-auto">{b.name}</span>
-                  {b.originNote && (
-                    <span className="text-[0.625rem] uppercase tracking-wider text-muted">
-                      BMW Group
-                    </span>
-                  )}
                 </Link>
               </li>
             ))}

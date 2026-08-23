@@ -33,7 +33,11 @@ export const posts: Post[] = [
     date: "2026-07-14",
     readingMinutes: 6,
     tag: "Range Rover",
-    relatedBrands: ["range-rover-repair-sharjah", "land-rover-repair-sharjah"],
+    relatedBrands: [
+      "range-rover-repair-sharjah",
+      "land-rover-repair-sharjah",
+      "defender-repair-sharjah",
+    ],
     relatedServices: ["air-suspension-repair"],
     body: [
       {
@@ -78,60 +82,6 @@ export const posts: Post[] = [
       {
         type: "p",
         text: "Do not keep driving it. A car resting on its bump stops has no suspension travel, which puts load through components that were never meant to take it and makes handling unpredictable at speed. Arrange a collection instead — a vehicle that cannot be safely driven is precisely what a pickup service exists for.",
-      },
-    ],
-  },
-  {
-    slug: "how-often-service-german-car-uae",
-    title: "How often should you really service a German car in the UAE?",
-    metaTitle: "German Car Service Intervals in the UAE | How Often Is Right?",
-    description:
-      "European service schedules assume European conditions. Here is why heat, dust and stop-start traffic mean shorter intervals — and which fluids matter most.",
-    date: "2026-06-22",
-    readingMinutes: 5,
-    tag: "Servicing",
-    relatedBrands: [
-      "bmw-repair-sharjah",
-      "mercedes-benz-repair-sharjah",
-      "audi-repair-sharjah",
-    ],
-    relatedServices: ["oil-change-and-servicing", "transmission-gearbox-repair"],
-    body: [
-      {
-        type: "p",
-        text: "Manufacturer service intervals are set against assumptions: moderate ambient temperatures, clean air, and journeys long enough for the engine to reach and hold operating temperature. Almost none of those assumptions hold in the UAE, which is why following the book literally is one of the more expensive habits a car owner can have here.",
-      },
-      { type: "h2", text: "Engine oil" },
-      {
-        type: "p",
-        text: "Some schedules allow 15,000 to 20,000 km between oil changes. In sustained heat, with fine dust in the air and a great deal of stop-start traffic, oil degrades faster and filters load up sooner. For most of the vehicles we service, 8,000 to 10,000 km is the sensible interval. The cost difference over a year is small; the cost difference of a timing chain worn by degraded oil is not.",
-      },
-      {
-        type: "p",
-        text: "Specification matters as much as frequency. Modern engines list an exact manufacturer approval, not merely a viscosity grade. Using the wrong approval affects timing chain wear and emissions components, and on a car still under warranty it affects your position if a claim arises.",
-      },
-      { type: "h2", text: "Transmission fluid — the one people skip" },
-      {
-        type: "p",
-        text: "\"Sealed for life\" is a marketing phrase, not an engineering one. ZF eight-speed, DSG and S tronic units all benefit substantially from a fluid and filter service, and in Gulf heat and traffic they need it sooner than the schedule implies. For most vehicles we would suggest 60,000 to 80,000 km, and sooner for a wet-clutch DSG in heavy traffic.",
-      },
-      {
-        type: "p",
-        text: "This is probably the highest-value preventative service available on a modern automatic. A great many gearbox complaints that arrive at the workshop described as a failing transmission turn out to be overdue fluid.",
-      },
-      { type: "h2", text: "Brake fluid and coolant" },
-      {
-        type: "ul",
-        items: [
-          "Brake fluid is hygroscopic and absorbs moisture from the air — faster in humid coastal conditions. Two years is the sensible maximum, and old fluid means a soft pedal under repeated heavy braking.",
-          "Coolant condition is worth checking at every service. Degraded coolant loses its corrosion inhibitors, and cooling system failure in this climate escalates to head gasket damage very quickly.",
-          "Cabin and air filters clog faster here than almost anywhere. A restricted cabin filter is also the usual reason an air conditioner feels weak.",
-        ],
-      },
-      { type: "h2", text: "The inspection is the real value" },
-      {
-        type: "p",
-        text: "The oil change itself is routine. What you are actually paying for is a technician with the car on a ramp noticing the developing coolant leak, the perished bush or the disc approaching its minimum thickness — while each of those is still cheap. Ask for that inspection in writing; it is the part of a service that saves money.",
       },
     ],
   },

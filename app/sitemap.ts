@@ -14,7 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const core = ([
     { url: "/", priority: 1, changeFrequency: "weekly" },
     { url: "/range-rover-specialist-sharjah", priority: 0.95, changeFrequency: "monthly" },
-    { url: "/german-car-repair-sharjah", priority: 0.95, changeFrequency: "monthly" },
     { url: "/pickup-and-delivery", priority: 0.9, changeFrequency: "monthly" },
     { url: "/services", priority: 0.85, changeFrequency: "monthly" },
     { url: "/book", priority: 0.8, changeFrequency: "yearly" },

@@ -145,7 +145,7 @@ export function serviceSchema({
 
 /**
  * Marque page service node. `brand.manufacturer` is the real maker — Range
- * Rover resolves to Land Rover and MINI to BMW, so no marque is misattributed
+ * Rover and Defender resolve to Land Rover, so no marque is misattributed
  * in structured data any more than it is in the copy.
  */
 export function brandServiceSchema(brand: Brand) {

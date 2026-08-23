@@ -25,8 +25,9 @@ export function Footer() {
             </Link>
 
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-              Range Rover and Land Rover specialists, and German car experts, in
-              Sharjah — with car pickup and delivery across the UAE.
+              Independent Jaguar Land Rover specialists in Sharjah — Range
+              Rover, Land Rover, Defender and Jaguar, with pickup and delivery
+              across the UAE.
             </p>
 
             <address className="mt-5 space-y-3 text-sm not-italic text-muted">

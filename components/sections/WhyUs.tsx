@@ -27,7 +27,7 @@ const reasons = [
   {
     icon: BadgeCheck,
     title: "Specialists, not generalists",
-    text: "Range Rover air suspension and German engine electronics are not general-workshop jobs. Knowing the common failures by heart saves diagnostic hours you would otherwise pay for.",
+    text: "Range Rover air suspension and JLR engine electronics are not general-workshop jobs. Knowing the common failures by heart saves diagnostic hours you would otherwise pay for.",
   },
   {
     icon: Users,

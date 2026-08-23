@@ -9,16 +9,20 @@ import { BrandLogo } from "@/components/ui/BrandLogo";
  * under reduced motion.
  */
 export function BrandMarquee() {
+  // Four marques alone make a track narrower than wide viewports, which would
+  // open a gap in the -50% loop — so each half carries the list three times.
+  const items = [...brands, ...brands, ...brands];
+
   const row = (hidden: boolean) => (
     <ul
       aria-hidden={hidden || undefined}
       className="flex w-max shrink-0 items-center"
     >
-      {brands.map((b) => (
-        <li key={b.slug} className="flex items-center">
+      {items.map((b, i) => (
+        <li key={`${b.slug}-${i}`} className="flex items-center">
           <Link
             href={`/${b.slug}`}
-            tabIndex={hidden ? -1 : undefined}
+            tabIndex={hidden || i >= brands.length ? -1 : undefined}
             className="group flex items-center gap-3 px-7 py-4 text-muted transition-colors hover:text-ink"
           >
             <span className="h-6 w-6 shrink-0 text-steel transition-colors group-hover:text-green">

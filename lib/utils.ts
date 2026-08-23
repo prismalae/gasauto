@@ -9,8 +9,8 @@ export function cn(...parts: (string | false | null | undefined)[]) {
  * The ONLY way components should read the brand list.
  *
  * Returning brands pre-grouped by family means the header dropdown, the home
- * page grid, the service pages and both hubs all render the British / German
- * split identically — it cannot drift, because there is one implementation.
+ * page grid, the service pages and the hub all render the marque lineup
+ * identically — it cannot drift, because there is one implementation.
  */
 export function brandsByFamily(subset?: Brand[]) {
   const list = subset ?? brands;

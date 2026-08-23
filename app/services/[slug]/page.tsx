@@ -50,8 +50,8 @@ export default async function ServicePage({ params }: Props) {
   const service = getService(slug);
   if (!service) notFound();
 
-  // Grouped by family — the British / German split is reinforced even here,
-  // on a page that is not about any single marque.
+  // Grouped through the same helper as everywhere else, so the marque lineup
+  // stays consistent even on pages that are not about a single marque.
   const groups = brandsByFamily(brandsBySlugs(service.appliesTo));
   const photo = serviceMedia[service.slug];
 

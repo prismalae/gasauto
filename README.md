@@ -1,4 +1,4 @@
-# GAS AUTO — Range Rover & German Car Specialist, Sharjah
+# GAS AUTO — Jaguar Land Rover Specialist, Sharjah
 
 Marketing site for **G.A.S AUTO GARAGE**, Sharjah. Next.js 15 (App Router) ·
 Tailwind v4 · Motion · TypeScript. Every route is statically prerendered.
@@ -14,30 +14,24 @@ npm start            # serve the production build
 
 ## The one thing to understand before editing
 
-The site is built around **two clearly separated brand families**, and that
-separation is structural, not a copywriting preference:
+The site services **the Jaguar Land Rover family and nothing else**: Range
+Rover, Land Rover, Defender and Jaguar — four British marques sharing one
+engineering bloodline (Ingenium/AJ engines, ZF automatics, air suspension,
+common electronics). No other marque may appear anywhere on the site.
 
-| Family | Marques | Hub page |
-|---|---|---|
-| **British 4x4** — the core specialty | Range Rover, Land Rover | `/range-rover-specialist-sharjah` |
-| **German** — the wider coverage | Mercedes-Benz, BMW, Audi, Porsche, Volkswagen, MINI | `/german-car-repair-sharjah` |
+That lineup is enforced, not assumed:
 
-Range Rover and Land Rover are **British** marques. MINI is a British marque
-running **BMW Group** engineering, which is why it is grouped with the German
-cars and says so on its page. Nothing on the site may describe a British marque
-as German — customers spot it instantly.
-
-This is enforced in three places, so it cannot drift:
-
-1. **`Brand.family`** in [`content/brands.ts`](content/brands.ts) drives the
-   origin badge, the grouping, the breadcrumb and the hub link.
+1. **`content/brands.ts`** defines exactly four brands under the single
+   `jlr` family, which drives the badge, grouping, breadcrumb and hub link.
 2. **`brandsByFamily()`** in [`lib/utils.ts`](lib/utils.ts) is the *only* way
-   components read the brand list — the header dropdown, home grid, footer,
-   service pages, booking form and both hubs all group identically by
-   construction.
-3. **`npm run check:families`** walks the built HTML and fails if any marque
-   renders with the wrong origin badge, if a German group appears above the
-   British one, or if MINI loses its origin note.
+   components read the brand list — header menu, home grid, footer, service
+   pages, booking form and the hub all render identically by construction.
+3. **`npm run check:families`** walks the built HTML and fails if any removed
+   marque (Mercedes-Benz, BMW, Audi, Porsche, Volkswagen, MINI) or "German
+   car" positioning reappears, if a stale route survives, or if the hub stops
+   linking to all four marque pages. (The hub FAQ "Is Range Rover a German
+   car?" is the one allow-listed phrase — it names the misconception in order
+   to correct it.)
 
 Adding a marque is a data edit in `content/brands.ts` — no new components.
 

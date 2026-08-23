@@ -10,11 +10,7 @@ import { Eyebrow, Section } from "@/components/ui/Section";
 const groups = brandsByFamily();
 
 /**
- * Two labelled groups, never one flat row of eight.
- *
- * British 4x4 renders first as wide feature cards (it is the specialty), German
- * beneath as a standard grid. Each group animates as its own stagger so the
- * split reads even while scrolling past.
+ * The four JLR marques as wide feature cards in one labelled group.
  */
 export function BrandGrid() {
   return (
@@ -22,20 +18,20 @@ export function BrandGrid() {
       <Reveal className="max-w-3xl">
         <Eyebrow>Marques we specialise in</Eyebrow>
         <h2 className="mt-4 font-display text-[1.75rem] sm:text-4xl">
-          <span className="text-chrome">Range Rover, Land Rover &amp; German car repair.</span>{" "}
-          <span className="text-green">Two disciplines, one workshop.</span>
+          <span className="text-chrome">Range Rover, Defender &amp; Jaguar repair.</span>{" "}
+          <span className="text-green">One family, done properly.</span>
         </h2>
         <p className="mt-4 text-muted">
-          Range Rover and Land Rover are British 4x4s with their own failure
-          patterns — air suspension, ZF gearboxes, electronics. The German
-          marques are a different discipline again. We keep them separate
-          because the engineering is separate.
+          Range Rover, Land Rover, Defender and Jaguar share platforms,
+          engines and electronics under Jaguar Land Rover — one engineering
+          family with its own failure patterns. It is the only work we take,
+          and depth in one marque is depth in all four.
         </p>
       </Reveal>
 
       <div className="mt-12 space-y-14">
         {groups.map(({ family, brands }) => {
-          const feature = family.id === "british-4x4";
+          const feature = true;
 
           return (
             <div key={family.id}>
@@ -96,11 +92,6 @@ export function BrandGrid() {
                         {feature ? b.intro : b.commonFaults[0]?.body}
                       </p>
 
-                      {b.originNote && (
-                        <p className="mt-3 text-xs italic text-muted">
-                          BMW Group engineering — grouped with the German cars.
-                        </p>
-                      )}
 
                       <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-green">
                         {b.name} repair

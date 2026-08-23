@@ -2,8 +2,8 @@
 
 export const homeFaqs = [
   {
-    q: "Do you specialise in Range Rover, or German cars?",
-    a: "Both, and we keep them clearly separate. Range Rover and Land Rover are British 4x4s and they are our core specialty — particularly air suspension, gearboxes and electronics. Alongside that we service the German marques: Mercedes-Benz, BMW, Audi, Porsche and Volkswagen. Different engineering, different diagnostic systems, different expertise.",
+    q: "Which cars do you repair?",
+    a: "The Jaguar Land Rover family, and nothing else: Range Rover, Land Rover, Defender and Jaguar. They share engines, gearboxes and electronic architecture, so specialising in the family is what keeps our diagnosis fast and our repairs right the first time. If you drive something else, we will happily point you somewhere good — but we would rather stay the best at one thing.",
   },
   {
     q: "Do you offer car pickup and delivery?",

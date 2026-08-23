@@ -17,7 +17,7 @@ import { JsonLd } from "@/components/schema/JsonLd";
 import { faqSchema } from "@/components/schema/schemas";
 
 export const metadata: Metadata = {
-  title: { absolute: "Car Repair Sharjah | Range Rover & German Car Experts — GAS AUTO" },
+  title: { absolute: "Car Repair Sharjah | Range Rover, Defender & Jaguar — GAS AUTO" },
   description: site.description,
   alternates: { canonical: "/" },
 };

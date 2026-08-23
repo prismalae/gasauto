@@ -11,7 +11,7 @@ import { JsonLd } from "@/components/schema/JsonLd";
 import { breadcrumbSchema } from "@/components/schema/schemas";
 
 const description =
-  "Car maintenance advice for UAE drivers — Range Rover air suspension, German car service intervals, AC faults and honest guidance on repairs, from the GAS AUTO workshop in Sharjah.";
+  "Car maintenance advice for UAE drivers — Range Rover air suspension, service intervals, AC faults and honest guidance on repairs, from the GAS AUTO workshop in Sharjah.";
 
 export const metadata: Metadata = {
   title: { absolute: "Car Maintenance Tips for UAE Drivers | Blog — GAS AUTO" },

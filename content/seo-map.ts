@@ -19,23 +19,14 @@ export const seoMap: SeoEntry[] = [
     secondary: ["auto repair sharjah", "car garage sharjah", "car workshop sharjah"],
   },
 
-  // Family hubs — the head terms
+  // Family hub — the head term
   {
     route: "/range-rover-specialist-sharjah",
     primary: "range rover specialist sharjah",
     secondary: [
       "land rover garage sharjah",
-      "range rover garage sharjah",
+      "jaguar land rover garage sharjah",
       "range rover mechanic sharjah",
-    ],
-  },
-  {
-    route: "/german-car-repair-sharjah",
-    primary: "german car repair sharjah",
-    secondary: [
-      "german car garage sharjah",
-      "german car service sharjah",
-      "german car mechanic sharjah",
     ],
   },
 
@@ -48,37 +39,17 @@ export const seoMap: SeoEntry[] = [
   {
     route: "/land-rover-repair-sharjah",
     primary: "land rover repair sharjah",
-    secondary: ["discovery repair sharjah", "defender service sharjah"],
+    secondary: ["discovery repair sharjah", "discovery sport repair sharjah"],
   },
   {
-    route: "/mercedes-benz-repair-sharjah",
-    primary: "mercedes repair sharjah",
-    secondary: ["mercedes service sharjah", "mercedes garage sharjah"],
+    route: "/defender-repair-sharjah",
+    primary: "defender repair sharjah",
+    secondary: ["defender service sharjah", "classic defender repair uae"],
   },
   {
-    route: "/bmw-repair-sharjah",
-    primary: "bmw repair sharjah",
-    secondary: ["bmw service sharjah", "bmw garage sharjah"],
-  },
-  {
-    route: "/audi-repair-sharjah",
-    primary: "audi repair sharjah",
-    secondary: ["audi service sharjah", "audi garage sharjah"],
-  },
-  {
-    route: "/porsche-repair-sharjah",
-    primary: "porsche repair sharjah",
-    secondary: ["cayenne service sharjah", "porsche garage sharjah"],
-  },
-  {
-    route: "/volkswagen-repair-sharjah",
-    primary: "volkswagen repair sharjah",
-    secondary: ["vw service sharjah", "vw garage sharjah"],
-  },
-  {
-    route: "/mini-cooper-repair-sharjah",
-    primary: "mini cooper repair sharjah",
-    secondary: ["mini service sharjah", "mini garage sharjah"],
+    route: "/jaguar-repair-sharjah",
+    primary: "jaguar repair sharjah",
+    secondary: ["jaguar service sharjah", "f-pace repair sharjah"],
   },
 
   // Services
@@ -105,7 +76,7 @@ export const seoMap: SeoEntry[] = [
   {
     route: "/services/transmission-gearbox-repair",
     primary: "gearbox repair sharjah",
-    secondary: ["transmission repair sharjah", "dsg service sharjah"],
+    secondary: ["transmission repair sharjah", "zf gearbox service sharjah"],
   },
   {
     route: "/services/computer-diagnostics",

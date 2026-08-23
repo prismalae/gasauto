@@ -2,7 +2,7 @@
  * Service data for the nine service pages plus the /services hub.
  *
  * `appliesTo` lists brand slugs. Service pages render those links grouped under
- * the two family headings, so the British/German split is reinforced even on
+ * the family heading, so the marque lineup is reinforced even on
  * pages that are not about a specific marque.
  */
 
@@ -46,7 +46,7 @@ export const services: Service[] = [
     metaTitle:
       "Air Suspension Repair Sharjah | Range Rover Experts — GAS AUTO",
     metaDescription:
-      "Air suspension repair in Sharjah for Range Rover, Land Rover, Mercedes AIRMATIC, Audi Q7 and Porsche Cayenne. Air springs, compressors, valve blocks and ride height calibration.",
+      "Air suspension repair in Sharjah for Range Rover, Land Rover, Defender and Jaguar. Air springs, compressors, valve blocks and ride height calibration.",
     h1: "Air Suspension Repair in Sharjah",
     intro:
       "Air suspension repair is the job this Sharjah workshop does more than any other — it is the most common expensive fault on the vehicles we specialise in, and UAE heat is the reason. Rubber air springs harden and split, the compressor runs constantly trying to compensate, and then it fails too. Catching it at the spring stage costs a fraction of catching it after the compressor has burned out.",
@@ -81,9 +81,8 @@ export const services: Service[] = [
     appliesTo: [
       "range-rover-repair-sharjah",
       "land-rover-repair-sharjah",
-      "mercedes-benz-repair-sharjah",
-      "audi-repair-sharjah",
-      "porsche-repair-sharjah",
+      "defender-repair-sharjah",
+      "jaguar-repair-sharjah",
     ],
     faqs: [
       {
@@ -108,7 +107,7 @@ export const services: Service[] = [
     featured: true,
     metaTitle: "Car AC Repair Sharjah | Auto Air Conditioning Service — GAS AUTO",
     metaDescription:
-      "Car AC repair and gas refill in Sharjah. Compressor, condenser, evaporator and blower diagnostics for Range Rover, Mercedes, BMW, Audi and more. UAE-wide pickup and delivery.",
+      "Car AC repair and gas refill in Sharjah. Compressor, condenser, evaporator and blower diagnostics for Range Rover, Land Rover, Defender and Jaguar. UAE-wide pickup and delivery.",
     h1: "Car AC Repair & Servicing in Sharjah",
     intro:
       "Car AC repair in Sharjah is not a comfort call-out — a weak air conditioner is the reason a car cannot be used here. We pressure-test the system properly rather than topping up gas and hoping, because a system that needs regassing has a leak by definition.",
@@ -143,11 +142,8 @@ export const services: Service[] = [
     appliesTo: [
       "range-rover-repair-sharjah",
       "land-rover-repair-sharjah",
-      "mercedes-benz-repair-sharjah",
-      "bmw-repair-sharjah",
-      "audi-repair-sharjah",
-      "volkswagen-repair-sharjah",
-      "mini-cooper-repair-sharjah",
+      "defender-repair-sharjah",
+      "jaguar-repair-sharjah",
     ],
     faqs: [
       {
@@ -165,9 +161,9 @@ export const services: Service[] = [
     name: "Engine Repair & Overhaul",
     short: "Engine Repair",
     icon: "engine",
-    metaTitle: "Engine Repair Sharjah | German & Range Rover Engines — GAS AUTO",
+    metaTitle: "Engine Repair Sharjah | Range Rover & Jaguar Engines — GAS AUTO",
     metaDescription:
-      "Engine repair and overhaul in Sharjah for Range Rover, BMW, Mercedes, Audi, Porsche and VW. Overheating, oil leaks, timing chains, misfires and full rebuilds.",
+      "Engine repair and overhaul in Sharjah for Range Rover, Land Rover, Defender and Jaguar. Overheating, oil leaks, timing chains, misfires and full rebuilds.",
     h1: "Engine Repair & Overhaul in Sharjah",
     intro:
       "Engine repair in Sharjah, from an oil leak to a full rebuild. Most catastrophic engine damage we see started as a small cooling or lubrication fault that was driven on for a few weeks — so the most valuable thing we do is catch it early and tell you plainly.",
@@ -204,12 +200,8 @@ export const services: Service[] = [
     appliesTo: [
       "range-rover-repair-sharjah",
       "land-rover-repair-sharjah",
-      "bmw-repair-sharjah",
-      "mercedes-benz-repair-sharjah",
-      "audi-repair-sharjah",
-      "porsche-repair-sharjah",
-      "volkswagen-repair-sharjah",
-      "mini-cooper-repair-sharjah",
+      "defender-repair-sharjah",
+      "jaguar-repair-sharjah",
     ],
     faqs: [
       {
@@ -218,7 +210,7 @@ export const services: Service[] = [
       },
       {
         q: "What does a rattle on cold start mean?",
-        a: "Usually timing chain or tensioner wear, which on several BMW, MINI and Audi engines is a known issue and progressively damaging. It should be diagnosed immediately.",
+        a: "Usually timing chain or tensioner wear, which on the AJ V6 and V8 and early Ingenium engines is a known issue and progressively damaging. It should be diagnosed immediately.",
       },
     ],
   },
@@ -228,12 +220,12 @@ export const services: Service[] = [
     short: "Transmission",
     icon: "gearbox",
     metaTitle:
-      "Gearbox & Transmission Repair Sharjah | ZF, DSG, PDK — GAS AUTO",
+      "Gearbox & Transmission Repair Sharjah | ZF 8-Speed — GAS AUTO",
     metaDescription:
-      "Automatic transmission and gearbox repair in Sharjah. ZF 8-speed, DSG, S tronic and PDK service, mechatronic repair, fluid changes and harsh shifting diagnosis.",
+      "Automatic transmission and gearbox repair in Sharjah. ZF 8-speed service, mechatronic repair, fluid changes and harsh shifting diagnosis for Range Rover, Defender and Jaguar.",
     h1: "Transmission & Gearbox Repair in Sharjah",
     intro:
-      "Gearbox and transmission repair in Sharjah for the ZF, DSG and PDK units we see most. Harsh shifting rarely means a dead gearbox — the cause is usually overdue fluid, a mechatronic fault or an adaptation issue, all far cheaper to fix than the replacement people fear.",
+      "Gearbox and transmission repair in Sharjah for the ZF automatics fitted across the Jaguar Land Rover range. Harsh shifting rarely means a dead gearbox — the cause is usually overdue fluid, a mechatronic fault or an adaptation issue, all far cheaper to fix than the replacement people fear.",
     symptoms: [
       "Jolt or clunk when selecting drive or reverse",
       "Harsh, delayed or flaring gear changes",
@@ -255,7 +247,7 @@ export const services: Service[] = [
       },
       {
         title: "Correct fluid, not universal fluid",
-        text: "ZF, DSG and PDK units each require a specific fluid. Universal ATF causes shift quality problems and long-term damage, and it is a common shortcut in cheaper workshops.",
+        text: "The ZF 8-speed requires its specific fluid. Universal ATF causes shift quality problems and long-term damage, and it is a common shortcut in cheaper workshops.",
       },
       {
         title: "Adaptation after service",
@@ -264,16 +256,14 @@ export const services: Service[] = [
     ],
     appliesTo: [
       "range-rover-repair-sharjah",
-      "mercedes-benz-repair-sharjah",
-      "bmw-repair-sharjah",
-      "audi-repair-sharjah",
-      "porsche-repair-sharjah",
-      "volkswagen-repair-sharjah",
+      "land-rover-repair-sharjah",
+      "defender-repair-sharjah",
+      "jaguar-repair-sharjah",
     ],
     faqs: [
       {
         q: "How often should automatic transmission fluid be changed?",
-        a: "For most of the vehicles we see, every 60,000–80,000 km, and sooner for wet-clutch DSG units or cars used in heavy traffic. It is well worth doing regardless of what the service book says.",
+        a: "For most of the vehicles we see, every 60,000–80,000 km, and sooner for cars used hard or in heavy traffic. It is well worth doing regardless of what the service book says.",
       },
       {
         q: "My gearbox judders in traffic. Is it finished?",
@@ -289,7 +279,7 @@ export const services: Service[] = [
     metaTitle:
       "Car Diagnostics Sharjah | Dealer-Level Scanning — GAS AUTO",
     metaDescription:
-      "Dealer-level computer diagnostics in Sharjah for Range Rover, Mercedes, BMW, Audi and Porsche. Full module scanning, live data, actuator tests and module coding.",
+      "Dealer-level computer diagnostics in Sharjah for Range Rover, Land Rover, Defender and Jaguar. Full module scanning, live data, actuator tests and module coding.",
     h1: "Car Computer Diagnostics in Sharjah",
     intro:
       "Proper car diagnostics in Sharjah means more than reading a code. A generic reader tells you a sensor reported a value out of range — not why. We scan every module, read live data, run actuator tests and interpret the result, which is the difference between fixing a car and replacing parts until the light goes out.",
@@ -325,12 +315,8 @@ export const services: Service[] = [
     appliesTo: [
       "range-rover-repair-sharjah",
       "land-rover-repair-sharjah",
-      "mercedes-benz-repair-sharjah",
-      "bmw-repair-sharjah",
-      "audi-repair-sharjah",
-      "porsche-repair-sharjah",
-      "volkswagen-repair-sharjah",
-      "mini-cooper-repair-sharjah",
+      "defender-repair-sharjah",
+      "jaguar-repair-sharjah",
     ],
     faqs: [
       {
@@ -350,7 +336,7 @@ export const services: Service[] = [
     icon: "electrical",
     metaTitle: "Auto Electrical Repair Sharjah | Battery Drain — GAS AUTO",
     metaDescription:
-      "Auto electrical repair in Sharjah. Battery drain, alternator, starter, wiring faults, module failures and infotainment problems on Range Rover and German cars.",
+      "Auto electrical repair in Sharjah. Battery drain, alternator, starter, wiring faults, module failures and infotainment problems on Range Rover, Defender and Jaguar.",
     h1: "Auto Electrical & Electronics Repair in Sharjah",
     intro:
       "Auto electrical repair in Sharjah is where guesswork gets expensive fastest. We trace circuits properly — measuring current draw, testing grounds and following wiring diagrams — instead of replacing components in sequence and hoping.",
@@ -382,10 +368,8 @@ export const services: Service[] = [
     appliesTo: [
       "range-rover-repair-sharjah",
       "land-rover-repair-sharjah",
-      "mercedes-benz-repair-sharjah",
-      "bmw-repair-sharjah",
-      "audi-repair-sharjah",
-      "mini-cooper-repair-sharjah",
+      "defender-repair-sharjah",
+      "jaguar-repair-sharjah",
     ],
     faqs: [
       {
@@ -401,7 +385,7 @@ export const services: Service[] = [
     icon: "brakes",
     metaTitle: "Brake & Suspension Repair Sharjah | Discs & Pads — GAS AUTO",
     metaDescription:
-      "Brake and suspension repair in Sharjah. Discs, pads, calipers, shocks, bushes, arms and wheel alignment for Range Rover and German cars. UAE-wide pickup and delivery.",
+      "Brake and suspension repair in Sharjah. Discs, pads, calipers, shocks, bushes, arms and wheel alignment for Range Rover, Defender and Jaguar. UAE-wide pickup and delivery.",
     h1: "Brake & Suspension Repair in Sharjah",
     intro:
       "Brake and suspension repair in Sharjah for heavy premium vehicles — which are hard on brakes and bushes, on roads and at speeds that do not help. We measure rather than estimate, so you replace components when they actually need it.",
@@ -432,9 +416,8 @@ export const services: Service[] = [
     appliesTo: [
       "range-rover-repair-sharjah",
       "land-rover-repair-sharjah",
-      "porsche-repair-sharjah",
-      "bmw-repair-sharjah",
-      "mercedes-benz-repair-sharjah",
+      "defender-repair-sharjah",
+      "jaguar-repair-sharjah",
     ],
     faqs: [
       {
@@ -451,7 +434,7 @@ export const services: Service[] = [
     metaTitle:
       "Car Oil Change Sharjah | Periodic Servicing — GAS AUTO",
     metaDescription:
-      "Oil change and periodic servicing in Sharjah with genuine filters and correct specification oil for Range Rover, Mercedes, BMW, Audi, Porsche and VW. UAE-wide pickup and delivery.",
+      "Oil change and periodic servicing in Sharjah with genuine filters and correct specification oil for Range Rover, Land Rover, Defender and Jaguar. UAE-wide pickup and delivery.",
     h1: "Oil Change & Periodic Servicing in Sharjah",
     intro:
       "Car servicing and oil change in Sharjah, done properly: servicing is where you either prevent the expensive faults or create them. We use the oil specification the manufacturer requires — not a universal grade — and we shorten intervals to suit UAE conditions rather than following a European schedule literally.",
@@ -485,12 +468,8 @@ export const services: Service[] = [
     appliesTo: [
       "range-rover-repair-sharjah",
       "land-rover-repair-sharjah",
-      "mercedes-benz-repair-sharjah",
-      "bmw-repair-sharjah",
-      "audi-repair-sharjah",
-      "porsche-repair-sharjah",
-      "volkswagen-repair-sharjah",
-      "mini-cooper-repair-sharjah",
+      "defender-repair-sharjah",
+      "jaguar-repair-sharjah",
     ],
     faqs: [
       {
@@ -511,12 +490,12 @@ export const services: Service[] = [
     metaTitle:
       "Pre-Purchase Car Inspection Sharjah — GAS AUTO",
     metaDescription:
-      "Independent pre-purchase car inspection in Sharjah. Full diagnostic scan, mechanical and body check on used Range Rover, Mercedes, BMW, Audi and Porsche before you buy.",
+      "Independent pre-purchase car inspection in Sharjah. Full diagnostic scan, mechanical and body check on a used Range Rover, Defender or Jaguar before you buy.",
     h1: "Pre-Purchase Inspection in Sharjah",
     intro:
       "A pre-purchase car inspection in Sharjah is the cheapest hour you will ever spend on a used premium car. We inspect the vehicle you are considering, scan every module for stored and pending faults, and give you a written report — so you negotiate with facts or walk away before it becomes your problem.",
     symptoms: [
-      "Buying a used Range Rover or German car privately",
+      "Buying a used Range Rover, Defender or Jaguar privately",
       "Seller has limited or missing service history",
       "Car has been recently \"cleared\" of warning lights",
       "You want leverage on price",
@@ -542,12 +521,8 @@ export const services: Service[] = [
     appliesTo: [
       "range-rover-repair-sharjah",
       "land-rover-repair-sharjah",
-      "mercedes-benz-repair-sharjah",
-      "bmw-repair-sharjah",
-      "audi-repair-sharjah",
-      "porsche-repair-sharjah",
-      "volkswagen-repair-sharjah",
-      "mini-cooper-repair-sharjah",
+      "defender-repair-sharjah",
+      "jaguar-repair-sharjah",
     ],
     faqs: [
       {

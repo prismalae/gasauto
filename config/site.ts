@@ -18,9 +18,9 @@ export const site = {
   /** From the workshop signboard: ورشة غروب الشمس لصيانة السيارات. */
   legalName: "Gheroub Al Shams Auto Maintenance Workshop",
   legalNameAr: "ورشة غروب الشمس لصيانة السيارات",
-  tagline: "Range Rover Specialists & German Car Experts in Sharjah",
+  tagline: "Range Rover, Defender & Jaguar Specialists in Sharjah",
   description:
-    "Car repair garage in Sharjah for Range Rover, Land Rover and German cars — dealer-level diagnostics, genuine parts, and pickup & delivery across the UAE.",
+    "Car repair garage in Sharjah for Range Rover, Land Rover, Defender and Jaguar — dealer-level diagnostics, genuine parts, and pickup & delivery across the UAE.",
 
   phone: "054 778 8280",
   phoneIntl: "+971 54 778 8280",

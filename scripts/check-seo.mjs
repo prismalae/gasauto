@@ -36,7 +36,6 @@ const serviceSlugs = [...services.matchAll(/^\s{4}slug:\s*"([^"]+)"/gm)].map((m)
 const expected = [
   "/",
   "/range-rover-specialist-sharjah",
-  "/german-car-repair-sharjah",
   "/services",
   "/pickup-and-delivery",
   "/book",

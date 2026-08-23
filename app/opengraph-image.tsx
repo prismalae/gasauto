@@ -52,8 +52,8 @@ export default function Image() {
             color: "#14201a",
           }}
         >
-          <span>Range Rover Specialists</span>
-          <span style={{ color: "#0b5227" }}>&amp; German Car Experts</span>
+          <span>Range Rover, Land Rover,</span>
+          <span style={{ color: "#0b5227" }}>Defender &amp; Jaguar Specialists</span>
         </div>
 
         <div style={{ display: "flex", marginTop: 32, fontSize: 26, color: "#5a6660" }}>

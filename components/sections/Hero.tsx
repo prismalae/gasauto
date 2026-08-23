@@ -57,10 +57,10 @@ export function Hero() {
               follows. Never merged into one list.
             */}
             <h1 className="mt-5 font-display text-[1.875rem] leading-[1.12] [text-wrap:balance] sm:text-[2.25rem] lg:text-[2.625rem]">
-              <TextReveal text="Range Rover Specialists" className="text-chrome" />
+              <TextReveal text="Range Rover, Land Rover," className="text-chrome" />
               <TextReveal
                 as="span"
-                text="& German Car Experts"
+                text="Defender & Jaguar Specialists"
                 delay={0.18}
                 className="block text-green"
               />
@@ -80,13 +80,11 @@ export function Hero() {
               transition={{ delay: 0.5, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="mt-6 max-w-xl text-[0.9375rem] leading-relaxed text-muted sm:text-base"
             >
-              Independent specialists in{" "}
-              <strong className="font-semibold text-ink">Range Rover and Land Rover</strong>{" "}
-              — the British 4×4s we know best — and expert servicing for{" "}
+              Independent specialists in the Jaguar Land Rover family —{" "}
               <strong className="font-semibold text-ink">
-                Mercedes-Benz, BMW, Audi, Porsche and Volkswagen
-              </strong>
-              . Dealer-level diagnostics, genuine parts, and a written quote
+                Range Rover, Land Rover, Defender and Jaguar
+              </strong>{" "}
+              — and nothing else. Dealer-level diagnostics, genuine parts, and a written quote
               before any work starts — at our own workshop in Sharjah
               Industrial Area 12.
             </motion.p>

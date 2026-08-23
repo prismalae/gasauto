@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   applicationName: site.name,
   keywords: [
     "range rover repair sharjah",
-    "german car repair sharjah",
+    "jaguar repair sharjah",
     "car garage sharjah",
     "car pickup and delivery uae",
   ],

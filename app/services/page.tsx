@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/schema/JsonLd";
 import { breadcrumbSchema } from "@/components/schema/schemas";
 
 const description =
-  "Car repair and servicing in Sharjah: air suspension, engine, gearbox, AC, diagnostics, electrical, brakes and periodic servicing for Range Rover and German cars. UAE-wide pickup and delivery.";
+  "Car repair and servicing in Sharjah: air suspension, engine, gearbox, AC, diagnostics, electrical, brakes and periodic servicing for Range Rover, Defender and Jaguar. UAE-wide pickup and delivery.";
 
 export const metadata: Metadata = {
   title: { absolute: "Car Service & Repair in Sharjah | All Services — GAS AUTO" },

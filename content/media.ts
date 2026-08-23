@@ -95,13 +95,9 @@ export const serviceMedia: Record<string, Media> = {
 /** Photo shown on each marque page. */
 export const brandMedia: Record<string, Media> = {
   "range-rover-repair-sharjah": media.workshopBays,
-  "land-rover-repair-sharjah": media.workshopBays,
-  "mercedes-benz-repair-sharjah": media.workshopInterior,
-  "bmw-repair-sharjah": media.engineStripped,
-  "audi-repair-sharjah": media.engineRemoved,
-  "porsche-repair-sharjah": media.workshopInterior,
-  "volkswagen-repair-sharjah": media.underbodyInspection,
-  "mini-cooper-repair-sharjah": media.jaguarEngineBay,
+  "land-rover-repair-sharjah": media.workshopInterior,
+  "defender-repair-sharjah": media.underbodyInspection,
+  "jaguar-repair-sharjah": media.jaguarEngineBay,
 };
 
 /** Short workshop clips. Each has a poster frame extracted from the video. */

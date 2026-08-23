@@ -1,14 +1,17 @@
 /**
- * Brand data for the eight marque pages.
+ * Brand data for the four marque pages.
  *
- * The `family` field is the structural expression of the site's positioning:
- * Range Rover and Land Rover are BRITISH 4x4s and are never grouped with the
- * German marques. Every component that renders brands reads them through
- * `brandsByFamily()` in lib/utils.ts, so the header dropdown, home grid,
- * service pages and both hubs group identically by construction.
+ * The lineup is the Jaguar Land Rover family and nothing else: Range Rover,
+ * Land Rover, Defender and Jaguar. One engineering family — shared Ingenium
+ * and AJ engines, ZF automatics, air suspension architecture and dense
+ * electronics — which is exactly why specialising in it works.
+ *
+ * Every component reads brands through brandsByFamily() in lib/utils.ts, and
+ * scripts/check-families.mjs fails the build if any non-JLR marque leaks back
+ * into the rendered site.
  */
 
-export type Family = "british-4x4" | "german";
+export type Family = "jlr";
 
 export type FamilyMeta = {
   id: Family;
@@ -21,36 +24,26 @@ export type FamilyMeta = {
 };
 
 export const FAMILIES: Record<Family, FamilyMeta> = {
-  "british-4x4": {
-    id: "british-4x4",
-    label: "British 4x4 Specialists",
-    short: "British 4x4",
+  jlr: {
+    id: "jlr",
+    label: "Jaguar Land Rover Specialists",
+    short: "JLR",
     badge: "BRITISH",
     hubSlug: "range-rover-specialist-sharjah",
-    hubTitle: "Range Rover & Land Rover Specialist",
+    hubTitle: "Jaguar Land Rover Specialist",
     blurb:
-      "Our core specialty. Air suspension, ZF gearboxes, supercharged V6 and V8 engines and the notoriously fussy electronics — the faults that keep British 4x4s off the road in the Gulf heat.",
-  },
-  german: {
-    id: "german",
-    label: "German Car Experts",
-    short: "German",
-    badge: "GERMAN",
-    hubSlug: "german-car-repair-sharjah",
-    hubTitle: "German Car Repair",
-    blurb:
-      "Dealer-level diagnostics and genuine parts for the German marques — engine, transmission, cooling, suspension and electronics, without the dealer invoice.",
+      "Range Rover, Land Rover, Defender and Jaguar share an engineering DNA — air suspension, Ingenium and AJ engines, ZF automatics and dense electronics. One specialism covers all four, and it is the only work we take.",
   },
 };
 
-export const FAMILY_ORDER: Family[] = ["british-4x4", "german"];
+export const FAMILY_ORDER: Family[] = ["jlr"];
 
 export type Brand = {
   slug: string;
   name: string;
   family: Family;
   manufacturer: string;
-  /** Shown on the marque page when the maker and the marque's origin differ. */
+  /** Shown on the marque page when provenance needs a note. */
   originNote?: string;
   metaTitle: string;
   metaDescription: string;
@@ -67,7 +60,7 @@ export const brands: Brand[] = [
   {
     slug: "range-rover-repair-sharjah",
     name: "Range Rover",
-    family: "british-4x4",
+    family: "jlr",
     manufacturer: "Land Rover",
     metaTitle:
       "Range Rover Repair Sharjah | Specialists & Pickup — GAS AUTO",
@@ -133,21 +126,21 @@ export const brands: Brand[] = [
   {
     slug: "land-rover-repair-sharjah",
     name: "Land Rover",
-    family: "british-4x4",
+    family: "jlr",
     manufacturer: "Land Rover",
     metaTitle:
-      "Land Rover Repair Sharjah | Discovery & Defender — GAS AUTO",
+      "Land Rover Repair Sharjah | Discovery Specialists — GAS AUTO",
     metaDescription:
-      "Land Rover repair and servicing in Sharjah for Discovery, Defender and Freelander. Specialist diagnostics, air suspension, engine and gearbox work with UAE-wide pickup and delivery.",
+      "Land Rover repair and servicing in Sharjah for Discovery, Discovery Sport and Freelander. Specialist diagnostics, air suspension, engine and gearbox work with UAE-wide pickup and delivery.",
     h1: "Land Rover Repair & Service in Sharjah",
     intro:
-      "Land Rover repair in Sharjah for Discovery, Defender and Freelander. They share much of their engineering with the Range Rover line — and its weak points too. We treat them as what they are: capable vehicles that need proper diagnosis rather than a parts cannon, and we keep the common failure items on the shelf.",
+      "Land Rover repair in Sharjah for Discovery, Discovery Sport and Freelander. They share much of their engineering with the Range Rover line — and its weak points too. We treat them as what they are: capable vehicles that need proper diagnosis rather than a parts cannon, and we keep the common failure items on the shelf.",
     models: [
       "Discovery",
       "Discovery Sport",
-      "Defender",
-      "Freelander",
       "Discovery 4",
+      "Discovery 3",
+      "Freelander",
     ],
     commonFaults: [
       {
@@ -175,8 +168,8 @@ export const brands: Brand[] = [
     ],
     faqs: [
       {
-        q: "Do you service the new Defender as well as the classic one?",
-        a: "Yes — both the current L663 Defender and older models. They are very different vehicles underneath, and we diagnose them accordingly.",
+        q: "Do you repair the Defender as well?",
+        a: "Yes — the Defender is one of our four core marques and has its own dedicated page. Both the current L663 and the classic Defender come through the workshop regularly.",
       },
       {
         q: "My Discovery overheats in traffic. Is that normal in UAE summer?",
@@ -189,323 +182,118 @@ export const brands: Brand[] = [
     ],
   },
   {
-    slug: "mercedes-benz-repair-sharjah",
-    name: "Mercedes-Benz",
-    family: "german",
-    manufacturer: "Mercedes-Benz",
-    metaTitle:
-      "Mercedes-Benz Repair Sharjah | Specialists & Pickup — GAS AUTO",
+    slug: "defender-repair-sharjah",
+    name: "Defender",
+    family: "jlr",
+    manufacturer: "Land Rover",
+    metaTitle: "Defender Repair Sharjah | New & Classic Defender — GAS AUTO",
     metaDescription:
-      "Mercedes-Benz repair and servicing in Sharjah. AIRMATIC suspension, engine, gearbox, AC and electrical diagnostics on C, E, S, GLE, GLC and G-Class with UAE-wide pickup and delivery.",
-    h1: "Mercedes-Benz Repair & Service in Sharjah",
+      "Defender repair and servicing in Sharjah — the current 90, 110 and 130 and the classic Defender. Air suspension, cooling, electrical and off-road driveline work with UAE-wide pickup.",
+    h1: "Defender Repair & Service in Sharjah",
     intro:
-      "Mercedes-Benz repair in Sharjah, from a C-Class daily driver to a G-Class. Mercedes electronics reward proper diagnostic equipment and punish guesswork — we read the vehicle the way the factory system does, then fix the fault that is actually there.",
-    models: ["C-Class", "E-Class", "S-Class", "GLE", "GLC", "G-Class", "CLA"],
-    commonFaults: [
-      {
-        title: "AIRMATIC suspension failure",
-        body: "Air struts, the compressor and the relay all wear, and UAE heat accelerates it. A corner sitting low or a 'Vehicle rising' message that never clears are the usual first signs.",
-      },
-      {
-        title: "Engine oil and coolant leaks",
-        body: "Valve cover gaskets, oil cooler seals and thermostat housings are common leak points across the M274, M276 and M278 engines.",
-      },
-      {
-        title: "7G and 9G-Tronic gearbox issues",
-        body: "Conductor plate faults, valve body wear and neglected fluid produce harsh or delayed shifts. Fluid and filter service at the right interval prevents most of it.",
-      },
-      {
-        title: "Air conditioning underperformance",
-        body: "In Sharjah, a weak AC is not a comfort issue, it is the reason a car is unusable. Compressor, condenser and evaporator faults all present as poor cooling and need proper pressure testing to separate.",
-      },
-      {
-        title: "Electrical and SBC / sensor faults",
-        body: "Battery drain, faulty crank sensors, NOx sensors on diesels and steering-lock modules are all frequent, and all easily misdiagnosed without factory-level scanning.",
-      },
-    ],
-    relatedServices: [
-      "computer-diagnostics",
-      "air-suspension-repair",
-      "car-ac-repair",
-      "transmission-gearbox-repair",
-    ],
-    faqs: [
-      {
-        q: "Do you have Mercedes-specific diagnostic equipment?",
-        a: "Yes. Generic OBD readers show only basic codes; Mercedes modules need a system that can talk to every control unit, run actuator tests and code replacement parts. That is what separates a real diagnosis from a guess.",
-      },
-      {
-        q: "My AC is cold at speed but warm in traffic. What is wrong?",
-        a: "Classic symptom of poor condenser airflow — often a failed cooling fan, a blocked condenser or low refrigerant. It is a quick diagnosis and worth fixing before summer.",
-      },
-      {
-        q: "How often should I service a Mercedes in the UAE?",
-        a: "More often than the European schedule suggests. Heat, dust and short traffic-heavy trips are hard on oil and filters, so we generally recommend shortening the interval rather than following the book literally.",
-      },
-    ],
-  },
-  {
-    slug: "bmw-repair-sharjah",
-    name: "BMW",
-    family: "german",
-    manufacturer: "BMW",
-    metaTitle: "BMW Repair Sharjah | Specialists & Pickup — GAS AUTO",
-    metaDescription:
-      "BMW repair and servicing in Sharjah. Engine, N20 and N55 timing, cooling, gearbox, VANOS and electrical diagnostics on 3, 5, 7 Series, X3, X5 and M models. UAE-wide pickup and delivery.",
-    h1: "BMW Repair & Service in Sharjah",
-    intro:
-      "Independent BMW repair and servicing in Sharjah. BMW engines are strong when maintained and expensive when they are not — most of the big bills we see could have been prevented by catching a cooling or oil leak early — so we tell you what is developing, not only what has already broken.",
+      "Defender repair in Sharjah for both generations of an icon: the current 90, 110 and 130, and the classic Defender that preceded them. They are very different vehicles underneath — one runs air suspension and dense electronics, the other rewards honest mechanical work — and we treat each on its own terms.",
     models: [
-      "3 Series",
-      "5 Series",
-      "7 Series",
-      "X3",
-      "X5",
-      "X6",
-      "M Series",
+      "Defender 90",
+      "Defender 110",
+      "Defender 130",
+      "Defender V8",
+      "Classic Defender",
     ],
     commonFaults: [
       {
-        title: "Cooling system failure",
-        body: "Electric water pumps, thermostats and plastic expansion tanks are known BMW wear items, and UAE heat brings them forward. An overheating BMW can destroy a cylinder head very quickly.",
+        title: "Air suspension faults on the 110 and 130",
+        body: "The current Defender shares the corner air suspension architecture of the wider range, and UAE heat ages its air springs the same way — a vehicle sitting low overnight or refusing to reach off-road height is the usual first sign.",
       },
       {
-        title: "Oil leaks — valve cover and oil filter housing",
-        body: "The most common BMW complaint we see. Burning smell after a drive and oil on the exhaust manifold usually means a hardened gasket, which is straightforward if caught before it soaks the belt.",
+        title: "Cooling system under desert load",
+        body: "D250 and D300 diesels and the P400 petrol all work hard in Gulf temperatures, and harder still off-road. Water pumps, thermostats and coolant leaks need catching early — an overheated modern engine is an expensive one.",
       },
       {
-        title: "Timing chain and VANOS faults",
-        body: "N20 and N47 timing chain wear is well documented; a rattle on cold start should be investigated immediately. VANOS solenoid faults cause rough idle and reduced power.",
+        title: "Electrical and infotainment glitches",
+        body: "Pivi Pro freezes, camera dropouts, phantom warnings and battery drain are common complaints on the L663. Most trace to software levels or a module that is not sleeping, and they need diagnosis rather than guesswork.",
       },
       {
-        title: "Carbon buildup on direct-injection engines",
-        body: "Turbocharged direct-injection BMWs accumulate carbon on the intake valves, causing misfires, rough idle and lost power. Walnut blasting restores it properly.",
+        title: "Driveline wear from real off-road use",
+        body: "Defenders in the UAE actually get used. Desert driving accelerates wear in differentials, the transfer box and suspension bushes, and drops the sensible oil-change interval well below the book figure.",
       },
       {
-        title: "Battery drain and electrical gremlins",
-        body: "Modules that will not sleep, failed IBS sensors and incorrectly registered batteries all cause repeat flat batteries — a fault that is diagnosable rather than a mystery.",
+        title: "Classic Defender care",
+        body: "Older Defenders need a different discipline: leaks, corrosion points, bushes, and parts that are increasingly worth refurbishing rather than replacing. We quote those jobs honestly — including when originality is worth preserving.",
       },
     ],
     relatedServices: [
-      "engine-repair",
-      "computer-diagnostics",
-      "car-ac-repair",
-      "oil-change-and-servicing",
-    ],
-    faqs: [
-      {
-        q: "Why does my BMW keep going flat?",
-        a: "Almost always a parasitic drain from a module that is not shutting down, or a battery that was replaced without being registered to the car. Both are diagnosable — replacing the battery again will not fix it.",
-      },
-      {
-        q: "Is a rattle on cold start serious?",
-        a: "On N20 and N47 engines it can indicate timing chain wear, which is serious. Book it in early — the difference in cost between an early fix and a failure is very large.",
-      },
-      {
-        q: "Do you register a new battery to the car?",
-        a: "Yes, always. Fitting a battery without registering it causes the charging system to over- or under-charge it and shortens its life significantly.",
-      },
-    ],
-  },
-  {
-    slug: "audi-repair-sharjah",
-    name: "Audi",
-    family: "german",
-    manufacturer: "Audi",
-    metaTitle:
-      "Audi Repair Sharjah | Specialists & Pickup — GAS AUTO",
-    metaDescription:
-      "Audi repair and servicing in Sharjah. TFSI engine, S tronic gearbox, quattro, oil consumption and electrical diagnostics on A4, A6, Q5, Q7 and more. UAE-wide pickup and delivery.",
-    h1: "Audi Repair & Service in Sharjah",
-    intro:
-      "Audi repair and servicing in Sharjah, from the A3 to the Q8. Audi shares much of its mechanical architecture with Volkswagen and Porsche, so the same known weak points appear across the range — we know where to look first, which keeps diagnostic time — and your bill — down.",
-    models: ["A3", "A4", "A6", "A8", "Q3", "Q5", "Q7", "Q8"],
-    commonFaults: [
-      {
-        title: "TFSI oil consumption and carbon buildup",
-        body: "Early 2.0 TFSI engines are known for piston ring oil consumption, and all direct-injection units build carbon on the intake valves. Both are fixable, and both are frequently misdiagnosed.",
-      },
-      {
-        title: "S tronic / DSG gearbox faults",
-        body: "Jerky low-speed shifts, hesitation from a standstill or a clutch pack warning usually mean overdue fluid service or mechatronic wear rather than a dead gearbox.",
-      },
-      {
-        title: "Timing chain tensioner failure",
-        body: "On older TFSI engines, a failing tensioner is a genuine engine-destroying fault. A rattle at start-up is the warning.",
-      },
-      {
-        title: "Water pump and thermostat leaks",
-        body: "The composite water pump housings crack with heat cycling. Coolant loss with no visible puddle is a common presentation.",
-      },
-      {
-        title: "Air suspension on Q7 and A8",
-        body: "The same heat-driven air spring and compressor failures as the other air-sprung cars we work on, with the same fix.",
-      },
-    ],
-    relatedServices: [
-      "engine-repair",
-      "transmission-gearbox-repair",
-      "computer-diagnostics",
       "air-suspension-repair",
+      "engine-repair",
+      "oil-change-and-servicing",
+      "computer-diagnostics",
     ],
     faqs: [
       {
-        q: "My Audi burns oil between services. Is that normal?",
-        a: "Some consumption is normal, but a litre every 1,000 km is not. On 2.0 TFSI engines it often indicates piston ring wear, and we can measure it properly rather than guess.",
+        q: "Do you work on the classic Defender or only the new one?",
+        a: "Both. The current L663 and the classic Defender are different vehicles needing different skills, and we service and repair each — from Pivi Pro diagnostics on one to carburettor-era honesty on the other.",
       },
       {
-        q: "How often should DSG / S tronic fluid be changed?",
-        a: "Every 40,000–60,000 km for a wet-clutch unit, and sooner in heavy traffic and heat. It is one of the highest-value preventative services on the car.",
+        q: "I take my Defender into the desert. How often should it be serviced?",
+        a: "More often than the book says. Sand, heat and sustained load degrade oils and filters quickly — for a Defender that sees regular desert use we recommend shortening engine and driveline intervals significantly, and checking diffs and the transfer box at every visit.",
       },
       {
-        q: "Can you code and program Audi modules?",
-        a: "Yes — replacement components on modern Audis usually need coding or adaptation to the vehicle before they work correctly.",
+        q: "Can you collect a Defender from outside Sharjah?",
+        a: "Yes — pickup and delivery covers the whole UAE. Tell us where the vehicle is and we will confirm the collection charge before anything is arranged.",
       },
     ],
   },
   {
-    slug: "porsche-repair-sharjah",
-    name: "Porsche",
-    family: "german",
-    manufacturer: "Porsche",
-    metaTitle:
-      "Porsche Repair Sharjah | Cayenne, Macan & 911 Service — GAS AUTO",
+    slug: "jaguar-repair-sharjah",
+    name: "Jaguar",
+    family: "jlr",
+    manufacturer: "Jaguar",
+    metaTitle: "Jaguar Repair Sharjah | F-Pace, XF & F-Type — GAS AUTO",
     metaDescription:
-      "Porsche repair and servicing in Sharjah for Cayenne, Macan, Panamera and 911. PDK, air suspension, cooling and engine diagnostics with genuine parts and UAE-wide pickup and delivery.",
-    h1: "Porsche Repair & Service in Sharjah",
+      "Jaguar repair and servicing in Sharjah for F-Pace, E-Pace, XE, XF, XJ and F-Type. Timing chains, cooling, ZF gearbox and electrical diagnostics with UAE-wide pickup and delivery.",
+    h1: "Jaguar Repair & Service in Sharjah",
     intro:
-      "Porsche repair in Sharjah for Cayenne, Macan, Panamera and 911. Porsche work demands correct torque figures, correct fluids and correct procedure — there is no margin for improvising, and we do not.",
-    models: ["Cayenne", "Macan", "Panamera", "911", "Boxster", "Cayman"],
+      "Jaguar repair in Sharjah, from an F-Pace daily driver to an F-Type kept for weekends. Jaguar shares its engines, gearboxes and electronics with the Land Rover side of the family — the same AJ V6 and V8 units, the same Ingenium engines, the same ZF automatic — so the specialist knowledge transfers directly, and so does our diagnostic tooling.",
+    models: ["F-Pace", "E-Pace", "XE", "XF", "XJ", "F-Type"],
     commonFaults: [
       {
-        title: "Coolant pipe and water pump failure",
-        body: "Cayenne coolant pipes and water pumps are a known failure point, and overheating on a Porsche V8 gets expensive fast.",
+        title: "Timing chain and tensioner wear",
+        body: "A rattle on cold start on the AJ V6 and V8 engines, and chain stretch on early Ingenium diesels, are both well documented. Caught early it is a chain and tensioner job; ignored, it takes the engine with it.",
       },
       {
-        title: "PDK transmission service",
-        body: "PDK units are robust but genuinely need fluid service on schedule. Neglected units develop harsh engagement and clutch wear.",
+        title: "Cooling system plastics and supercharger pump",
+        body: "Thermostat housings, coolant pipes and the supercharger circulation pump age fast in Gulf heat. Coolant loss with no visible puddle is the classic presentation, and it is never safe to ignore on these engines.",
       },
       {
-        title: "Air suspension faults",
-        body: "Cayenne and Panamera air struts and compressors fail in the same heat-driven pattern as other air-sprung vehicles, with the same sinking-overnight symptom.",
+        title: "ZF 8-speed gearbox service",
+        body: "The same ZF automatic as the rest of the family, with the same truth: 'sealed for life' fluid does not survive UAE traffic. Harsh or flaring shifts usually mean overdue fluid or a mechatronic fault, not a dead gearbox.",
       },
       {
-        title: "Brake and suspension wear",
-        body: "Porsche brakes are exceptional but wear at a rate that matches how the car is driven. Discs and pads should be measured, not estimated.",
+        title: "Electrical drain and InControl faults",
+        body: "Flat batteries after a few days parked, InControl and infotainment glitches, and phantom alarms are frequent Jaguar complaints — and almost always diagnosable to a specific module rather than a mystery.",
+      },
+      {
+        title: "Suspension bushes and brake wear",
+        body: "Jaguars are sprung firm and driven quickly. Control arm bushes, shock absorbers and discs wear accordingly, and UAE road speeds bring that forward — we measure rather than guess.",
       },
     ],
     relatedServices: [
       "engine-repair",
       "transmission-gearbox-repair",
+      "computer-diagnostics",
       "brakes-and-suspension",
-      "air-suspension-repair",
     ],
     faqs: [
       {
-        q: "Do you work on the 911 as well as the SUVs?",
-        a: "Yes. The Cayenne and Macan are the volume of what comes through, but we service and repair the sports car range as well.",
+        q: "Do Jaguars really share parts with Land Rover?",
+        a: "A great deal, yes — engines, gearboxes, electronics architecture and more were developed together under Jaguar Land Rover. It is why a workshop that lives inside this family diagnoses a Jaguar faster than a general garage ever will.",
       },
       {
-        q: "Do you use genuine Porsche parts?",
-        a: "For a Porsche we recommend genuine or OEM parts as standard, and we will always confirm what is being fitted before the work begins.",
-      },
-    ],
-  },
-  {
-    slug: "volkswagen-repair-sharjah",
-    name: "Volkswagen",
-    family: "german",
-    manufacturer: "Volkswagen",
-    metaTitle:
-      "Volkswagen Repair Sharjah | VW Service & Pickup — GAS AUTO",
-    metaDescription:
-      "Volkswagen repair and servicing in Sharjah. DSG gearbox, TSI engine, cooling, AC and electrical diagnostics on Golf, Passat, Tiguan and Touareg. UAE-wide pickup and delivery.",
-    h1: "Volkswagen Repair & Service in Sharjah",
-    intro:
-      "Volkswagen repair and servicing in Sharjah. VW is the sensible end of German ownership — provided the DSG fluid gets changed and the cooling system is looked after. We keep Volkswagens reliable at a running cost that makes sense.",
-    models: ["Golf", "Passat", "Tiguan", "Touareg", "Jetta", "Teramont"],
-    commonFaults: [
-      {
-        title: "DSG gearbox judder and hesitation",
-        body: "Overdue fluid and mechatronic wear cause low-speed judder and delayed engagement. Servicing on schedule prevents most DSG failures we see.",
+        q: "Do you work on the F-Type?",
+        a: "Yes, including the supercharged V6 and V8 cars. Performance Jaguars get the same rule as everything else here: correct parts, correct fluids, correct procedure.",
       },
       {
-        title: "TSI carbon buildup and coil packs",
-        body: "Misfires, rough idle and a flashing engine light are usually coil packs or carbon on the intake valves — both routine to put right.",
-      },
-      {
-        title: "Water pump and thermostat housing leaks",
-        body: "Plastic housings crack with heat cycling, which in the UAE means sooner than the service book expects.",
-      },
-      {
-        title: "Air conditioning faults",
-        body: "Compressor, condenser and blower faults all present as weak cooling and need proper testing to distinguish.",
-      },
-    ],
-    relatedServices: [
-      "transmission-gearbox-repair",
-      "engine-repair",
-      "car-ac-repair",
-      "oil-change-and-servicing",
-    ],
-    faqs: [
-      {
-        q: "My DSG judders at low speed. Is the gearbox failing?",
-        a: "Usually not. Most low-speed judder we see comes down to overdue fluid or a mechatronic adaptation issue, both of which are far cheaper than a replacement gearbox.",
-      },
-      {
-        q: "Is the Touareg the same as the Cayenne underneath?",
-        a: "They share a great deal of platform and componentry, including the air suspension architecture, so a lot of the same diagnostic knowledge applies.",
-      },
-    ],
-  },
-  {
-    slug: "mini-cooper-repair-sharjah",
-    name: "MINI Cooper",
-    family: "german",
-    manufacturer: "BMW",
-    originNote:
-      "A British marque built on BMW Group engineering — diagnostics, parts supply and service intervals all follow BMW, which is why we group MINI with the German cars.",
-    metaTitle:
-      "MINI Cooper Repair Sharjah | Specialists & Pickup — GAS AUTO",
-    metaDescription:
-      "MINI Cooper repair and servicing in Sharjah. Timing chain, turbo, cooling, gearbox and electrical diagnostics on Cooper, Cooper S, Countryman and Clubman. UAE-wide pickup and delivery.",
-    h1: "MINI Cooper Repair & Service in Sharjah",
-    intro:
-      "MINI Cooper repair in Sharjah, handled the way MINI is built: BMW Group engineering under a British badge — the same engines, the same diagnostic systems, the same parts supply. That is why we service it alongside the German cars rather than with the British 4x4s.",
-    models: ["Cooper", "Cooper S", "Countryman", "Clubman", "John Cooper Works"],
-    commonFaults: [
-      {
-        title: "Timing chain rattle",
-        body: "A well-known MINI fault, particularly on earlier turbo engines. A rattle on cold start needs looking at immediately rather than at the next service.",
-      },
-      {
-        title: "Carbon buildup and turbo faults",
-        body: "Direct injection means carbon on the intake valves, and wastegate rattle on the turbo is common at higher mileage.",
-      },
-      {
-        title: "Thermostat and water pump failure",
-        body: "Overheating and coolant loss are common, and the electric water pump is a known wear item.",
-      },
-      {
-        title: "Oil leaks",
-        body: "Valve cover and oil filter housing gaskets harden and leak, exactly as they do on the BMW engines they share their design with.",
-      },
-    ],
-    relatedServices: [
-      "engine-repair",
-      "computer-diagnostics",
-      "oil-change-and-servicing",
-      "car-ac-repair",
-    ],
-    faqs: [
-      {
-        q: "Is MINI a German car?",
-        a: "MINI is a British marque, owned by BMW Group since 2000 and engineered on BMW platforms. The badge is British; the engines, electronics and service procedures are BMW's — so servicing it correctly means treating it as a BMW.",
-      },
-      {
-        q: "My MINI rattles when I start it cold. What is that?",
-        a: "Most likely timing chain wear, which is a known issue on these engines. It should be diagnosed straight away, because a chain failure damages the engine.",
+        q: "My Jaguar's battery keeps going flat. Is that normal?",
+        a: "No — it is usually a module that is not sleeping or a battery that was replaced without being registered. Both are diagnosable, and another new battery on its own will not fix it.",
       },
     ],
   },
