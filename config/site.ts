@@ -87,13 +87,6 @@ export const site = {
     reviewCount: 9,
   },
 
-  /** Headline numbers shown in the hero trust strip. */
-  stats: [
-    { value: 15, suffix: "+", label: "Years in Sharjah" }, // TODO_CLIENT — confirm
-    { value: 8000, suffix: "+", label: "Vehicles serviced" }, // TODO_CLIENT — confirm
-    { value: 12, suffix: " mo", label: "Warranty on repairs" }, // TODO_CLIENT — confirm
-    { value: 7, suffix: "", label: "Emirates covered" },
-  ],
 } as const;
 
 export const ORG_ID = `${site.domain}/#organization`;

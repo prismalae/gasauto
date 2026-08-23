@@ -65,7 +65,6 @@ Anything marked `TODO_CLIENT` is unconfirmed. Currently outstanding:
 - `email` — not listed on the Google profile
 - `domain` — the production origin (used for canonicals, sitemap, schema `@id`s)
 - Social links (Instagram / Facebook / TikTok)
-- The three hero stats: years in business, vehicles serviced, warranty period
 
 Contact details, address, coordinates, map links and opening hours are already
 filled in from the live Google Business Profile.

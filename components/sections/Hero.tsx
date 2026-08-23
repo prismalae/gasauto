@@ -4,10 +4,8 @@ import Image from "next/image";
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { ShieldCheck } from "lucide-react";
-import { site } from "@/config/site";
 import { media } from "@/content/media";
 import { ButtonLink } from "@/components/ui/Button";
-import { Counter } from "@/components/ui/Counter";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { Magnetic } from "@/components/ui/Magnetic";
 
@@ -146,21 +144,6 @@ export function Hero() {
           </motion.div>
         </div>
 
-        <dl className="mt-14 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-line pt-8 lg:grid-cols-4">
-          {site.stats.map((s) => (
-            <div key={s.label}>
-              <dt className="sr-only">{s.label}</dt>
-              <dd>
-                <span className="block font-display text-3xl text-chrome sm:text-4xl">
-                  <Counter value={s.value} suffix={s.suffix} />
-                </span>
-                <span className="mt-1 block text-xs uppercase tracking-[0.1em] text-muted">
-                  {s.label}
-                </span>
-              </dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </div>
   );

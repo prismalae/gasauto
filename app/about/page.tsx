@@ -10,7 +10,6 @@ import { Section, Eyebrow } from "@/components/ui/Section";
 import { ChromeCard } from "@/components/ui/ChromeCard";
 import { OriginBadge } from "@/components/ui/OriginBadge";
 import { Reveal, RevealGroup } from "@/components/ui/Reveal";
-import { Counter } from "@/components/ui/Counter";
 import { Cta } from "@/components/sections/Cta";
 import { JsonLd } from "@/components/schema/JsonLd";
 import { breadcrumbSchema } from "@/components/schema/schemas";
@@ -194,23 +193,6 @@ export default function AboutPage() {
           ))}
         </RevealGroup>
 
-        <Reveal>
-          <dl className="mt-12 grid grid-cols-2 gap-4 border-t border-line pt-8 lg:grid-cols-4">
-            {site.stats.map((s) => (
-              <div key={s.label}>
-                <dt className="sr-only">{s.label}</dt>
-                <dd>
-                  <span className="block font-display text-3xl text-ink sm:text-4xl">
-                    <Counter value={s.value} suffix={s.suffix} />
-                  </span>
-                  <span className="mt-1 block text-xs uppercase tracking-[0.12em] text-muted">
-                    {s.label}
-                  </span>
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </Reveal>
       </Section>
 
       <Cta />
