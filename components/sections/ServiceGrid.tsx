@@ -27,7 +27,7 @@ export function ServiceGrid({ heading = true }: { heading?: boolean }) {
           <li key={s.slug} className="list-none">
             <ChromeCard href={`/services/${s.slug}`}>
               <div className="flex items-start justify-between gap-3">
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-soft ring-1 ring-green/25">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-soft ring-1 ring-green/25 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-rotate-6 group-hover:scale-110">
                   <ServiceIcon name={s.icon} className="h-6 w-6 text-green" />
                 </span>
                 {s.featured && (

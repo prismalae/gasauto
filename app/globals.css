@@ -380,6 +380,49 @@ body {
   transition: transform 0.3s var(--ease-out-expo);
 }
 
+/* Faster marquee for the brand strip under the hero. */
+.marquee-fast {
+  animation-duration: 26s;
+}
+
+/* Cursor spotlight inside cards — a soft green pool that follows the pointer.
+   The card sets --mx/--my from its mousemove handler. */
+.spotlight-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.35s var(--ease-out-expo);
+  background: radial-gradient(
+    180px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(18, 190, 69, 0.12),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.group:hover > .spotlight-layer,
+.group:hover .spotlight-layer {
+  opacity: 1;
+}
+
+/* Radiating ring behind the WhatsApp button. */
+@keyframes gas-ping {
+  0%   { transform: scale(1); opacity: 0.45; }
+  70%, 100% { transform: scale(1.75); opacity: 0; }
+}
+
+.fab-ping::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: #25d366;
+  animation: gas-ping 2.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+  z-index: -1;
+}
+
 /* Marquee for the review rail. */
 @keyframes gas-marquee {
   from { transform: translateX(0); }
@@ -429,8 +472,14 @@ body {
   .aurora,
   .grad-card,
   .grad-band,
-  .btn-gradient {
+  .btn-gradient,
+  .fab-ping::before {
     animation: none !important;
+  }
+
+  .fab-ping::before,
+  .spotlight-layer {
+    display: none !important;
   }
 
   .btn-press:hover,

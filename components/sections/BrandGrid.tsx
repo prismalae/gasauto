@@ -73,7 +73,7 @@ export function BrandGrid() {
                         <div className="flex items-center gap-3">
                           <span
                             className={cn(
-                              "shrink-0 text-steel transition-colors duration-300 group-hover:text-green",
+                              "shrink-0 text-steel transition-[color,transform] duration-300 group-hover:scale-110 group-hover:text-green",
                               feature ? "h-11 w-11" : "h-8 w-8",
                             )}
                           >

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans_Arabic, Inter, Sora } from "next/font/google";
 import { site } from "@/config/site";
 import { Header } from "@/components/layout/Header";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { Footer } from "@/components/layout/Footer";
 import { MobileActionBar } from "@/components/layout/MobileActionBar";
 import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
@@ -91,6 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={organizationSchema()} />
         <JsonLd data={autoRepairSchema()} />
 
+        <ScrollProgress />
         <Header />
 
         <main id="main" className="pt-[var(--header-h)]">{children}</main>

@@ -9,6 +9,7 @@ import { media } from "@/content/media";
 import { ButtonLink } from "@/components/ui/Button";
 import { Counter } from "@/components/ui/Counter";
 import { TextReveal } from "@/components/ui/TextReveal";
+import { Magnetic } from "@/components/ui/Magnetic";
 
 const proof = [
   "Genuine & OEM parts",
@@ -96,9 +97,11 @@ export function Hero() {
               transition={{ delay: 0.62, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="mt-8 flex flex-wrap gap-3"
             >
-              <ButtonLink href="/book" size="lg">
-                Book a pickup
-              </ButtonLink>
+              <Magnetic>
+                <ButtonLink href="/book" size="lg">
+                  Book a pickup
+                </ButtonLink>
+              </Magnetic>
               <ButtonLink href="/services" size="lg" variant="outline">
                 Our services
               </ButtonLink>

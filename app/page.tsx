@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/config/site";
 import { homeFaqs } from "@/content/faqs";
 import { Hero } from "@/components/sections/Hero";
+import { BrandMarquee } from "@/components/sections/BrandMarquee";
 import { BrandGrid } from "@/components/sections/BrandGrid";
 import { PickupBand } from "@/components/sections/PickupBand";
 import { ServiceGrid } from "@/components/sections/ServiceGrid";
@@ -26,6 +27,7 @@ export default function HomePage() {
     <>
       <JsonLd data={faqSchema(homeFaqs)} />
       <Hero />
+      <BrandMarquee />
       <BrandGrid />
       <PickupBand />
       <ServiceGrid />

@@ -19,6 +19,16 @@ try {
 }
 
 const BASE = process.argv[2] ?? "http://localhost:3000";
+// Refuse to run against a server that is not actually up — otherwise every
+// route "fails" with connection noise and the report is 100% phantom.
+try {
+  const res = await fetch(BASE, { redirect: "manual" });
+  if (res.status >= 500) throw new Error(`HTTP ${res.status}`);
+} catch (err) {
+  console.error(`✗ ${BASE} is not reachable (${err.message ?? err}) — start the server first.`);
+  process.exit(1);
+}
+
 const ROUTES = ["/", "/range-rover-repair-sharjah", "/services/air-suspension-repair", "/pickup-and-delivery"];
 
 const browser = await puppeteer.launch({ headless: "new" });

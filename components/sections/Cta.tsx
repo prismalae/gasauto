@@ -3,6 +3,7 @@ import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { site, telUrl, whatsappUrl } from "@/config/site";
 import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
+import { Magnetic } from "@/components/ui/Magnetic";
 import { Section } from "@/components/ui/Section";
 
 export function Cta({
@@ -33,9 +34,11 @@ export function Cta({
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <ButtonLink href="/book" size="lg">
-              Book a Pickup
-            </ButtonLink>
+            <Magnetic>
+              <ButtonLink href="/book" size="lg">
+                Book a Pickup
+              </ButtonLink>
+            </Magnetic>
             <ButtonLink href={telUrl()} size="lg" variant="outline">
               <Phone className="h-5 w-5" aria-hidden="true" />
               {site.phone}

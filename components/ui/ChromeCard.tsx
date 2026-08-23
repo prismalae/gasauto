@@ -43,14 +43,30 @@ export function ChromeCard({
     className,
   );
 
-  const inner = <div className="relative z-[3]">{children}</div>;
+  /** Feeds the .spotlight-layer radial with the pointer position. */
+  const track = interactive
+    ? (e: React.MouseEvent<HTMLElement>) => {
+        const r = e.currentTarget.getBoundingClientRect();
+        e.currentTarget.style.setProperty("--mx", `${e.clientX - r.left}px`);
+        e.currentTarget.style.setProperty("--my", `${e.clientY - r.top}px`);
+      }
+    : undefined;
+
+  const inner = (
+    <>
+      {interactive && <div className="spotlight-layer" aria-hidden="true" />}
+      <div className="relative z-[3]">{children}</div>
+    </>
+  );
 
   const content = href ? (
-    <Link href={href} className={classes}>
+    <Link href={href} className={classes} onMouseMove={track}>
       {inner}
     </Link>
   ) : (
-    <div className={classes}>{inner}</div>
+    <div className={classes} onMouseMove={track}>
+      {inner}
+    </div>
   );
 
   return (
