@@ -56,22 +56,19 @@ export function Hero() {
               Two families, two lines. The specialty leads; the coverage
               follows. Never merged into one list.
             */}
-            <h1 className="mt-5 font-display text-[1.875rem] leading-[1.12] [text-wrap:balance] sm:text-[2.25rem] lg:text-[2.625rem]">
-              <TextReveal text="Range Rover, Land Rover," className="text-chrome" />
+            {/*
+              Two short, deliberate lines that never re-wrap — the full
+              four-marque list belongs to the paragraph and the marquee, not
+              the headline. Sharjah already lives in the eyebrow above.
+            */}
+            <h1 className="mt-5 font-display text-[1.75rem] leading-[1.08] sm:text-[2.5rem] lg:text-[3rem]">
+              <TextReveal text="Range Rover, Defender" className="block text-chrome" />
               <TextReveal
                 as="span"
-                text="Defender & Jaguar Specialists"
+                text="& Jaguar Specialists"
                 delay={0.18}
                 className="block text-green"
               />
-              <motion.span
-                initial={reduced ? false : { opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.7, duration: 0.5 }}
-                className="mt-2 block font-sans text-base font-medium tracking-normal text-muted sm:text-lg"
-              >
-                in Sharjah
-              </motion.span>
             </h1>
 
             <motion.p
@@ -80,12 +77,11 @@ export function Hero() {
               transition={{ delay: 0.5, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="mt-6 max-w-xl text-[0.9375rem] leading-relaxed text-muted sm:text-base"
             >
-              Independent specialists in the Jaguar Land Rover family —{" "}
-              <strong className="font-semibold text-ink">
-                Range Rover, Land Rover, Defender and Jaguar
-              </strong>{" "}
-              — and nothing else. Dealer-level diagnostics, genuine parts, and a written quote
-              before any work starts — at our own workshop in Sharjah
+              Independent specialists in the{" "}
+              <strong className="font-semibold text-ink">Jaguar Land Rover</strong>{" "}
+              family — every Range Rover, Land Rover, Defender and Jaguar — and
+              nothing else. Dealer-level diagnostics, genuine parts, and a
+              written quote before any work starts, at our workshop in Sharjah
               Industrial Area 12.
             </motion.p>
 
