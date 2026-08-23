@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "NEXT_DIST_DIR=.next-prod next build",
-    "start": "NEXT_DIST_DIR=.next-prod next start",
+    "dev": "NEXT_DIST_DIR=.next-dev next dev",
+    "build": "next build",
+    "start": "next start",
     "lint": "eslint",
     "check:placeholders": "node scripts/check-placeholders.mjs",
     "check:seo": "node scripts/check-seo.mjs",

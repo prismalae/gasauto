@@ -40,5 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Production build output (kept separate from the dev server's .next)
-.next-prod
+# Dev-server build output (kept separate from `next build`'s .next)
+.next-dev

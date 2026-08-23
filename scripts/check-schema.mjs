@@ -12,7 +12,7 @@ import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
 
 const ROOT = process.cwd();
-const DIST = process.env.NEXT_DIST_DIR || ".next-prod";
+const DIST = process.env.NEXT_DIST_DIR || ".next";
 const DIR = join(ROOT, DIST, "server/app");
 
 if (!existsSync(DIR)) {

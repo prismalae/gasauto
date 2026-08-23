@@ -153,9 +153,9 @@ node scripts/check-layout.mjs http://localhost:3000
 node scripts/check-motion.mjs http://localhost:3000
 ```
 
-> Run `next build` with the dev server stopped. Both write to `.next`, and
-> running them together produces stale-chunk `MODULE_NOT_FOUND` errors at
-> runtime.
+> Dev and build use separate output directories (`npm run dev` writes to
+> `.next-dev`; `next build` keeps the default `.next`, which is what deploy
+> platforms like Vercel expect), so running one never corrupts the other.
 
 | Script | Asserts |
 |---|---|

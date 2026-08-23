@@ -69,7 +69,7 @@ for (const r of routes) {
 // text, so "car repair sharjah" is satisfied by natural copy like
 // "car repair garage in Sharjah". Titles are also audited for length.
 // ---------------------------------------------------------------------------
-const DIST = process.env.NEXT_DIST_DIR || ".next-prod";
+const DIST = process.env.NEXT_DIST_DIR || ".next";
 const appDir = new URL(`../${DIST}/server/app/`, import.meta.url);
 
 const STOPWORDS = new Set(["a", "an", "and", "the", "in", "for", "of", "to", "on", "with", "&"]);
