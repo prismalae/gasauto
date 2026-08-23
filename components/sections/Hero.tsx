@@ -131,6 +131,30 @@ export function Hero() {
           </motion.ul>
         </div>
 
+        {/*
+          The workshop badge hangs in the top-right of the scene — desktop
+          only, where that corner would otherwise sit empty. Decorative: the
+          brand name is already in the header, so no alt text and no pointer.
+        */}
+        <motion.div
+          data-reveal=""
+          aria-hidden="true"
+          initial={reduced ? false : { opacity: 0.001, scale: 0.88, y: -12 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: 0.9, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="pointer-events-none absolute right-8 top-10 hidden lg:block xl:right-12"
+        >
+          <div className="animate-float">
+            <Image
+              src="/logo.png"
+              alt=""
+              width={184}
+              height={184}
+              className="h-44 w-44 drop-shadow-[0_18px_50px_rgba(0,0,0,0.55)] xl:h-48 xl:w-48"
+            />
+          </div>
+        </motion.div>
+
       {/*
         The car drives in from off-screen left and parks with its tyres on the
         hero's bottom border — the border doubles as the road. Scroll keeps it

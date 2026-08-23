@@ -423,6 +423,16 @@ body {
   z-index: -1;
 }
 
+/* Slow vertical drift for the hero badge — a sign swaying, not a bounce. */
+@keyframes gas-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+.animate-float {
+  animation: gas-float 6.5s ease-in-out infinite;
+}
+
 /* Marquee for the review rail. */
 @keyframes gas-marquee {
   from { transform: translateX(0); }
@@ -473,6 +483,7 @@ body {
   .grad-card,
   .grad-band,
   .btn-gradient,
+  .animate-float,
   .fab-ping::before {
     animation: none !important;
   }
