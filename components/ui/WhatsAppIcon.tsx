@@ -25,7 +25,10 @@ export function WhatsAppIcon({
       role="img"
       aria-hidden="true"
       focusable="false"
-      className={cn("h-5 w-5", className)}
+      // Default size applies only when the caller passes nothing — cn() does
+      // not resolve conflicting utilities, so "h-5 w-5 h-6 w-6" must never be
+      // emitted together.
+      className={cn(className ?? "h-5 w-5")}
       fill={brand ? WHATSAPP_GREEN : "currentColor"}
     >
       <path d={WHATSAPP_PATH} />

@@ -22,7 +22,10 @@ export function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
-      className="fixed bottom-6 right-6 z-40 hidden h-12 w-12 items-center justify-center rounded-full bg-green text-paper transition-colors hover:bg-green-deep md:flex"
+      // Visible at every viewport. On mobile it sits above the sticky action
+      // bar rather than hiding behind the md: breakpoint — the WhatsApp button
+      // should never be the thing that disappears on a phone-sized screen.
+      className="fixed bottom-24 right-5 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_4px_16px_rgba(0,0,0,0.45)] transition-colors hover:bg-[#1fb355] md:bottom-6 md:right-6"
     >
       <WhatsAppIcon className="h-6 w-6" />
     </a>
