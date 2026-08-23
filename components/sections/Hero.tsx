@@ -7,6 +7,7 @@ import { ShieldCheck } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { media } from "@/content/media";
 
 const proof = [
   "Genuine & OEM parts",
@@ -132,26 +133,28 @@ export function Hero() {
         </div>
 
         {/*
-          The workshop badge hangs in the top-right of the scene — desktop
-          only, where that corner would otherwise sit empty. Decorative: the
-          brand name is already in the header, so no alt text and no pointer.
+          A real technician from the workshop floor, cropped into a circular
+          chip with the animated chrome ring — hung in the top-right of the
+          scene, desktop only, where that corner would otherwise sit empty.
         */}
         <motion.div
           data-reveal=""
-          aria-hidden="true"
           initial={reduced ? false : { opacity: 0.001, scale: 0.88, y: -12 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="pointer-events-none absolute right-8 top-10 hidden lg:block xl:right-12"
         >
           <div className="animate-float">
-            <Image
-              src="/logo.png"
-              alt=""
-              width={184}
-              height={184}
-              className="h-44 w-44 drop-shadow-[0_18px_50px_rgba(0,0,0,0.55)] xl:h-48 xl:w-48"
-            />
+            <div className="chrome-stroke relative h-44 w-44 overflow-hidden rounded-full shadow-[0_18px_50px_rgba(0,0,0,0.55)] xl:h-48 xl:w-48">
+              <Image
+                src={media.underbodyInspection.src}
+                alt="GAS AUTO technician inspecting a vehicle on the ramp"
+                fill
+                sizes="192px"
+                className="object-cover"
+                style={{ objectPosition: "18% 88%" }}
+              />
+            </div>
           </div>
         </motion.div>
 
