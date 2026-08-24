@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { site, telUrl } from "@/config/site";
+import { gtagEvent } from "@/lib/gtag";
 import { services } from "@/content/services";
 import { brandsByFamily, cn } from "@/lib/utils";
 import { ButtonLink } from "@/components/ui/Button";
@@ -111,6 +112,7 @@ export function Header() {
           <div className="ml-auto flex items-center gap-2 lg:ml-2">
             <a
               href={telUrl()}
+              onClick={() => gtagEvent("call_click", { placement: "header" })}
               className="hidden items-center gap-2 text-sm text-muted transition-colors hover:text-green xl:inline-flex"
             >
               <Phone className="h-4 w-4" aria-hidden="true" />

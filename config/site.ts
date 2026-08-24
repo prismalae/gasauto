@@ -46,6 +46,9 @@ export const site = {
 
   domain: "https://gasauto.ae", // TODO_CLIENT — confirm the production domain
 
+  /** Google Ads tag. Page views load via gtag; see lib/gtag.ts for events. */
+  googleAdsId: "AW-18377643265",
+
   social: {
     instagram: "", // TODO_CLIENT
     facebook: "", // TODO_CLIENT

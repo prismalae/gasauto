@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { useFormStatus } from "react-dom";
 import { AlertCircle, CheckCircle2, Info, Phone } from "lucide-react";
 import { site, telUrl, whatsappUrl } from "@/config/site";
@@ -11,6 +11,7 @@ import { brandsByFamily } from "@/lib/utils";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import type { BookingState } from "@/lib/validation";
 import { submitBooking } from "./actions";
+import { gtagEvent } from "@/lib/gtag";
 
 const groups = brandsByFamily();
 const initial: BookingState = { status: "idle" };
@@ -22,6 +23,13 @@ const label = "mb-1.5 block text-xs font-semibold uppercase tracking-[0.12em] te
 export function BookingForm() {
   const [state, formAction] = useActionState(submitBooking, initial);
   const errs = state.status === "error" ? state.fieldErrors : undefined;
+  const submitted = state.status === "success";
+
+  // Fires once, only on a genuinely successful submission — not on render of
+  // the form, and not when the mail transport is unconfigured.
+  useEffect(() => {
+    if (submitted) gtagEvent("booking_submitted");
+  }, [submitted]);
 
   if (state.status === "success") {
     return (

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Phone, Truck } from "lucide-react";
 import { telUrl } from "@/config/site";
+import { gtagEvent } from "@/lib/gtag";
 
 /**
  * Sticky call / book bar below 768px.
@@ -16,6 +17,7 @@ export function MobileActionBar() {
       <div className="grid grid-cols-2 divide-x divide-line pb-[env(safe-area-inset-bottom)]">
         <a
           href={telUrl()}
+          onClick={() => gtagEvent("call_click", { placement: "action_bar" })}
           className="flex flex-col items-center gap-1 py-2.5 text-xs text-ink"
         >
           <Phone className="h-5 w-5 text-green" aria-hidden="true" />

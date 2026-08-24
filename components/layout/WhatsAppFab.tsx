@@ -2,6 +2,7 @@
 import { usePathname } from "next/navigation";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { site, whatsappUrl } from "@/config/site";
+import { gtagEvent } from "@/lib/gtag";
 import { brands } from "@/content/brands";
 
 /**
@@ -22,6 +23,7 @@ export function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
+      onClick={() => gtagEvent("whatsapp_click", { placement: "floating" })}
       // Visible at every viewport. On mobile it sits above the sticky action
       // bar rather than hiding behind the md: breakpoint — the WhatsApp button
       // should never be the thing that disappears on a phone-sized screen.
